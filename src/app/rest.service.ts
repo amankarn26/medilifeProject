@@ -82,6 +82,31 @@ export class RestService {
     return url;
   }
 
+  public catPageRest(restid: string, stateId : any) {
+    let url = this.server;
+    switch (restid) {
+      case 'getAllProduct':
+        url += '/compact/product';
+        break;
+      case 'getByProdType':
+        url += '/compact/product?prodtype=' + stateId;
+        break;
+      case 'prodtype':
+        url += '/product/prodtype';
+        break;
+      case 'popularproducts':
+        url += '/order/popular/product';
+        break;
+      case 'allproductype':
+        url += '/product/producttype';
+        break;
+      default:
+        url += '/offer/hotdeal/' + stateId;
+        break;
+    }
+    return url;
+  }
+
   public productPageRest(restid: string, stateId : any) {
     let url = this.server;
     switch (restid) {

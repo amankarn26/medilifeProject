@@ -9,12 +9,14 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './category/category.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    CategoryComponent
+    CategoryComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

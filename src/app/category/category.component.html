@@ -1,1 +1,76 @@
-<p>category works!</p>
+<div class="topBanner">
+    <div class="pathBox">
+        <div class="path">
+            <div class="home" [routerLink]="['/']">
+                <a href="/">Home</a>
+            </div>
+            <span class="cat" [routerLink]="['/']">/ &nbsp;&nbsp; Category</span>
+            <span class="name">/ &nbsp;&nbsp; {{prodTypeName}}</span>
+        </div>
+    </div>
+    <div class="heading">
+        <div class="centralizeBox">{{prodTypeName}}</div>
+    </div>
+</div>
+
+<div class="infoProduct row">
+    <div class="firstStatement col-md-6">We found 
+        <span>5</span>
+        products available for you</div>
+    <div class="secondStatement col-md-6"></div>
+</div>
+
+<div class="showProduct row" *ngIf="allProduct">
+    <ng-container *ngFor="let data of allProduct; let i = index">
+        <div class="col-md-3" >
+            <div class="showAllProductMainBox">
+                <div class="showProductBox">
+    
+                    <!-- <div class="product-budge">
+                        <span class="ShowTop orenge">TOP</span>
+                    </div> -->
+                    <div class="mainContain">
+                        <div class="product-img">
+                            <a href="/">
+                                <div class="productImageLimit">
+                                    <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
+                                    <img *ngIf="!data?.path" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-action">
+                            <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
+                            </div>
+                            <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                </div>
+                            </div>
+                            <div class="compare" mdbTooltip="Compare" placement="top">
+                                <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upperContain">
+                        <div class="product-cat">
+                            <a href="/">{{data?.category}}</a>
+                        </div>
+                        <div class="product-name">
+                            <a href="/">{{ data?.name }}</a>
+                        </div>
+                        <!-- <div class="product-price">
+                            <div class="price">
+                                <bdi>
+                                    &#8377; {{ data?.rateperunit }}
+                                </bdi>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix" *ngIf="(i+1) % 4 == 0"></div>
+        <div class="spacer" *ngIf="(i+1) % 4 == 0"></div>
+    </ng-container>
+    
+</div>

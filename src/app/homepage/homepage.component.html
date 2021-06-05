@@ -186,7 +186,7 @@
         <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="6" [height]="280"
             [arrowsOutside]="true">
             <div class="carousel-cell" *ngFor="let data of prodType; let i = index">
-                <div class="catShowBox">
+                <div class="catShowBox" [routerLink]="[ '/category',data?.prodtype]">
                     <div class="imageBox">
                         <img *ngIf="data?.photo?.docpath" src="{{ docServer }}/{{ data?.photo?.docpath }}" alt="catImage"/>
                         <img *ngIf="!data?.photo?.docpath" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="catImage"/>
@@ -207,8 +207,8 @@
                 <span class="text">Hot items</span>
             </div>
             <div class="col-md-6 rightBox">
-                <span class="text">View All Products</span>
-                <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span>
+                <!-- <span class="text">View All Products</span>
+                <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span> -->
             </div>
         </div>
         <div class="divider"></div>
@@ -273,7 +273,7 @@
                     <div class="col-md-6 leftBox">
                         <span class="text">{{prod?.prodtype}}</span>
                     </div>
-                    <div class="col-md-6 rightBox">
+                    <div class="col-md-6 rightBox" [routerLink]="[ '/category',prod?.prodtype]">
                         <span class="text">View All Products</span>
                         <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span>
                     </div>
