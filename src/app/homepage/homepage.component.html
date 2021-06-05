@@ -1,0 +1,330 @@
+<mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'" *ngIf="offerList">
+    <mdb-carousel-item *ngFor="let item of offerList">
+        <div class="view w-100">
+            <img class="d-block w-100" src="{{ docServer }}/{{ item.docpath }}" alt="slide">
+            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+            
+        </div>
+    </mdb-carousel-item>
+    <!-- <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg" alt="Second slide">
+        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Strong mask</h3>
+        <p>Secondary text</p>
+      </div>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view w-100">
+        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg" alt="Third slide">
+        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+      </div>
+      <div class="carousel-caption">
+        <h3 class="h3-responsive">Slight mask</h3>
+        <p>Third text</p>
+      </div>
+    </mdb-carousel-item> -->
+</mdb-carousel>
+
+<div class="trandingProduct" *ngIf="hotdeals">
+    <div class="innerBox" *ngIf="hotdeals[0]">
+        <div class="strachedBox">
+            <div class="borderBox">
+                <div class="headingDiv">
+                    <div class="prodCountHeading">Daily Deal Of The Day</div>
+                    <div class="countDownWrap">
+                        <div class="countdown-label">End in:</div>
+                        <div class="countdown" data-date="06/04/2021 23:59:59" data-days-text="Days"
+                            data-hours-text="Hours" data-minutes-text="Minutes" data-seconds-text="Seconds">
+                            <div class="countdown-content">
+                                <div class="hour">
+                                    <span class="number">04</span>
+                                    <span class="text">Hours</span>
+                                </div>
+                                <div class="minute">
+                                    <span class="number">31</span>
+                                    <span class="text">Minutes</span>
+                                </div>
+                                <div class="second">
+                                    <span class="number">01</span>
+                                    <span class="text">Seconds</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="productSlider">
+                    <!-- <mdb-carousel [isControls]="false" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
+              [animation]="'slide'">
+              <mdb-carousel-item *ngFor="let item of slides; let i = index">
+                <div  *ngFor="let card of item; let cardIndex = index">
+                  <div class="showProductMainBox">
+                    <div class="showProductBox">
+                      <div class="upperContain">
+                        <div class="product-budge">
+                          <span class="ShowTop">TOP</span>
+                        </div>
+                        <div class="product-cat">
+                          <a href="/">Covid 19</a>
+                        </div>
+                        <div class="product-name">
+                          <a href="/">HandWash</a>
+                        </div>
+                        <div class="product-price">
+                          <div class="price">
+                            <bdi>
+                              &#8377; 46
+                            </bdi>
+                            <del>
+                              &#8377; 71
+                            </del>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mainContain">
+                        <div class="product-img">
+                          <a href="/">
+                            <div class="productImageLimit">
+                              <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="productImage">
+                            </div>
+                          </a>
+                        </div>
+                        <div class="product-action">
+                          <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                            <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
+                          </div>
+                          <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                            <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart"></div>
+                          </div>
+                          <div class="compare" mdbTooltip="Compare" placement="top">
+                            <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mdb-carousel-item>
+            </mdb-carousel> -->
+                    <carousel #myCarousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5"
+                        [height]="400" [arrowsOutside]="true">
+                        <div class="carousel-cell" *ngFor="let entries of hotdeals; let i = index">
+                            <div class="showProductMainBox">
+                                <div class="showProductBox">
+                                    <div class="upperContain">
+                                        <div class="product-budge">
+                                            <span class="ShowTop">-{{entries.discount}}%</span>
+                                        </div>
+                                        <div class="product-cat">
+                                            <a href="/">Top Deals</a>
+                                        </div>
+                                        <div class="product-name">
+                                            <a href="/">{{entries.pname}}</a>
+                                        </div>
+                                        <div class="product-price">
+                                            <div class="price">
+                                                <bdi>
+                                                    &#8377; {{entries.rateunit
+                                                        - (entries.rateunit * (entries.discount /
+                                                        100))}}
+                                                </bdi>
+                                                <del>
+                                                    &#8377; {{entries.rateunit}}
+                                                </del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mainContain">
+                                        <div class="product-img">
+                                            <a href="/">
+                                                <div class="productImageLimit">
+                                                    <img src="{{ docServer }}/{{ entries?.photo.docpath }}"
+                                                        alt="productImage">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="product-action">
+                                            <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                                <div class="addToCartButton"><img src="assets/svg/newbag.svg"
+                                                        alt="add Cart"></div>
+                                            </div>
+                                            <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                                <div class="wishlistButton"><img src="assets/svg/heartWhite.svg"
+                                                        alt="add Cart"></div>
+                                            </div>
+                                            <div class="compare" mdbTooltip="Compare" placement="top">
+                                                <div class="compareButton"><img src="assets/svg/analytics.svg"
+                                                        alt="add Cart"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hotItems" *ngIf="prodTypeLoaded">
+    <div class="makeCenter">
+        <div class="row header">
+            <div class="col-md-6 leftBox">
+                <span class="text">Shop by categories</span>
+            </div>
+            <div class="col-md-6 rightBox">
+                
+            </div>
+        </div>
+        <div class="divider"></div>
+        <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="6" [height]="280"
+            [arrowsOutside]="true">
+            <div class="carousel-cell" *ngFor="let data of prodType; let i = index">
+                <div class="catShowBox">
+                    <div class="imageBox">
+                        <img *ngIf="data?.photo?.docpath" src="{{ docServer }}/{{ data?.photo?.docpath }}" alt="catImage"/>
+                        <img *ngIf="!data?.photo?.docpath" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="catImage"/>
+                    </div>
+                    <div class="catName">
+                        Hosptial
+                    </div>
+                </div>
+            </div>
+        </carousel>
+    </div>
+</div>
+
+<div class="hotItems" *ngIf="topProduct">
+    <div class="makeCenter">
+        <div class="row header">
+            <div class="col-md-6 leftBox">
+                <span class="text">Hot items</span>
+            </div>
+            <div class="col-md-6 rightBox">
+                <span class="text">View All Products</span>
+                <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="400"
+            [arrowsOutside]="true">
+            <div class="carousel-cell" *ngFor="let data of topProduct; let i = index">
+                <div class="showAllProductMainBox">
+                    <div class="showProductBox">
+
+                        <div class="product-budge">
+                            <span class="ShowTop">TOP</span>
+                        </div>
+                        <div class="mainContain">
+                            <div class="product-img">
+                                <a href="/">
+                                    <div class="productImageLimit">
+                                        <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
+                                        <img *ngIf="!data?.path" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-action">
+                                <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                    <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
+                                </div>
+                                <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                    <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                    </div>
+                                </div>
+                                <div class="compare" mdbTooltip="Compare" placement="top">
+                                    <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="upperContain">
+                            <div class="product-cat">
+                                <a href="/">Covid 19</a>
+                            </div>
+                            <div class="product-name">
+                                <a href="/">{{ data?.name }}</a>
+                            </div>
+                            <div class="product-price">
+                                <div class="price">
+                                    <bdi>
+                                        &#8377; {{ data?.rateperunit }}
+                                    </bdi>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </carousel>
+    </div>
+</div>
+
+<ng-container *ngIf="producttype">
+    <ng-container *ngFor="let prod of producttype">
+        <div class="hotItems" *ngIf="prod.product[0]">
+            <div class="makeCenter">
+                <div class="row header">
+                    <div class="col-md-6 leftBox">
+                        <span class="text">{{prod?.prodtype}}</span>
+                    </div>
+                    <div class="col-md-6 rightBox">
+                        <span class="text">View All Products</span>
+                        <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="300"
+                    [arrowsOutside]="true">
+                    <div class="carousel-cell" *ngFor="let data of prod.product; let i = index">
+                        <div class="showAllProductMainBox">
+                            <div class="showProductBox">
+        
+                                <div class="product-budge">
+                                    <span class="ShowTop orenge">Best</span>
+                                </div>
+                                <div class="mainContain">
+                                    <div class="product-img">
+                                        <a href="/">
+                                            <div class="productImageLimit">
+                                                <img *ngIf="data?.photos[0]" src="{{ docServer }}/{{ data?.photos[0].docpath }}" alt="productImage">
+                                                <img *ngIf="!data?.photos[0]" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="product-action">
+                                        <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                            <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
+                                        </div>
+                                        <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                            <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                            </div>
+                                        </div>
+                                        <div class="compare" mdbTooltip="Compare" placement="top">
+                                            <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="upperContain">
+                                    <div class="product-cat">
+                                        <a href="/">{{ data?.brand }}</a>
+                                    </div>
+                                    <div class="product-name">
+                                        <a href="/">{{ data?.name }}</a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </carousel>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
