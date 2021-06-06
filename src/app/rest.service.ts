@@ -7,8 +7,8 @@ import { map } from 'rxjs/operators';
 })
 export class RestService {
 
-  public ip = "http://localhost:8090";
-  // public ip = "http://45.32.62.106:8090";
+  // public ip = "http://localhost:8090";
+  public ip = "http://45.32.62.106:8090";
   // public ip = "https://cors-anywhere.herokuapp.com/http://45.32.62.106:8090";
 
   public server = this.ip + '/NaturalHomeoManager';
@@ -91,17 +91,8 @@ export class RestService {
       case 'getByProdType':
         url += '/compact/product?prodtype=' + stateId;
         break;
-      case 'prodtype':
-        url += '/product/prodtype';
-        break;
-      case 'popularproducts':
-        url += '/order/popular/product';
-        break;
-      case 'allproductype':
-        url += '/product/producttype';
-        break;
       default:
-        url += '/offer/hotdeal/' + stateId;
+        url += '/compact/product';
         break;
     }
     return url;

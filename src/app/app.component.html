@@ -64,7 +64,7 @@
         <div class="pageNav">
           <nav class="navbar">
             <ul class="nav navbar-nav extraNav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a [routerLink]="[ '/']">Home</a></li>
               <li><a href="#">Covid 19</a></li>
               <li><a href="#">Carmino Cosmetics</a></li>
               <li><a href="#">Medicines</a></li>
@@ -184,3 +184,44 @@
 </div> -->
 
 <router-outlet></router-outlet>
+<div style="overflow:hidden;resize:none;max-width:100%;width:100%;height:500px;">
+  <div id="embeddedmap-canvas" style="height:100%; width:100%;max-width:100%;">
+    <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Medlife+Pathology+Lab&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+  </div>
+  <a class="googlemap-enabler" href="https://www.embed-map.com" id="grabmaps-authorization">https://www.embed-map.com</a>
+  <style> 
+    #embeddedmap-canvas .text-marker{}.map-generator{max-width: 100%; max-height: 100%; background: none;}
+  </style>
+</div>
+
+<footer>
+  <div class="footerArea">
+    <div class="row extraStyle">
+      <div class="col-md-4 logoBox">
+        <div class="logo"><img src="assets/logo/Cleanlogo.png" alt="logo"></div>
+        <div class="credit">© 2020 Medizin. <br> All Rights Reserved</div>
+      </div>
+      <div class="col-md-4">
+        <div class="showList">
+          <div class="heading">Customer Service</div>
+          <div class="listItem">
+            <div class="item">My Profile</div>
+            <div class="item">My Orders</div>
+            <div class="item">My Account</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="showList">
+          <div class="heading">Our Company</div>
+          <div class="listItem">
+            <div class="item">About Us</div>
+            <div class="item">Terms and Conditions</div>
+            <div class="item">Privacy Policy</div>
+            <div class="item">Contact us</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

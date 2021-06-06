@@ -160,4 +160,34 @@ export class HomepageComponent implements OnInit {
     );
   }
 
+  cards = [
+    {
+      title: 'Good customer service ',
+      description: 'Theme has nice and rich features, also good design. This is our first time with Developer - ThemeMove and so far everything is great.',
+      person: 'Emily Noth ',
+      postion: '/ Agency, Germany ',
+      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+    },
+    {
+      title: 'Love this ',
+      description: 'Pretty much every single pixel can easily be customized. Great theme!',
+      person: 'Karoline Smith ',
+      postion: '/ Video Producer, Italy',
+      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+    },
+    {
+      title: 'Great quality!',
+      description: 'This is a great design and I hope that we will create a website with a good signature. ThemeMove team is reactive and kind. Thanks for the help so far.',
+      person: 'Luke Olfert ',
+      postion: '/ Web Developer, Canada',
+      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+    },
+    {
+      title: 'My luck',
+      description: 'Before my purchase, I had a look of many other themes & clubs that are available out there. So, ThemeMove is just good luck for me. 5-star rating deserved.',
+      person: 'Ryan Teixeira',
+      postion: '/ Designer, UK',
+      img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
+    },
+  ];
 }

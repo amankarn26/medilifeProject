@@ -21,7 +21,8 @@ export class CategoryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    
+    window.scrollTo(0,0);
+
     this.prodTypeName = this.routprms.snapshot.params['name'];
 
     if (this.prodTypeName) {

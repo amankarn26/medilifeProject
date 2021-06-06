@@ -5,7 +5,7 @@
             <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
         </div>
         <div class="carousel-caption">
-            
+
         </div>
     </mdb-carousel-item>
     <!-- <mdb-carousel-item>
@@ -120,17 +120,17 @@
                                             <span class="ShowTop">-{{entries.discount}}%</span>
                                         </div>
                                         <div class="product-cat">
-                                            <a href="/">Top Deals</a>
+                                            <a>Top Deals</a>
                                         </div>
                                         <div class="product-name">
-                                            <a href="/">{{entries.pname}}</a>
+                                            <a>{{entries.pname}}</a>
                                         </div>
                                         <div class="product-price">
                                             <div class="price">
                                                 <bdi>
                                                     &#8377; {{entries.rateunit
-                                                        - (entries.rateunit * (entries.discount /
-                                                        100))}}
+                                                    - (entries.rateunit * (entries.discount /
+                                                    100))}}
                                                 </bdi>
                                                 <del>
                                                     &#8377; {{entries.rateunit}}
@@ -140,7 +140,7 @@
                                     </div>
                                     <div class="mainContain">
                                         <div class="product-img">
-                                            <a href="/">
+                                            <a>
                                                 <div class="productImageLimit">
                                                     <img src="{{ docServer }}/{{ entries?.photo.docpath }}"
                                                         alt="productImage">
@@ -179,17 +179,20 @@
                 <span class="text">Shop by categories</span>
             </div>
             <div class="col-md-6 rightBox">
-                
+
             </div>
         </div>
         <div class="divider"></div>
         <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="6" [height]="280"
-            [arrowsOutside]="true">
+            [arrowsOutside]="false">
             <div class="carousel-cell" *ngFor="let data of prodType; let i = index">
                 <div class="catShowBox" [routerLink]="[ '/category',data?.prodtype]">
                     <div class="imageBox">
-                        <img *ngIf="data?.photo?.docpath" src="{{ docServer }}/{{ data?.photo?.docpath }}" alt="catImage"/>
-                        <img *ngIf="!data?.photo?.docpath" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="catImage"/>
+                        <img *ngIf="data?.photo?.docpath" src="{{ docServer }}/{{ data?.photo?.docpath }}"
+                            alt="catImage" />
+                        <img *ngIf="!data?.photo?.docpath"
+                            src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                            alt="catImage" />
                     </div>
                     <div class="catName">
                         {{data?.prodtype}}
@@ -212,21 +215,24 @@
             </div>
         </div>
         <div class="divider"></div>
-        <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="400"
-            [arrowsOutside]="true">
+        <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="500"
+            [arrowsOutside]="false">
             <div class="carousel-cell" *ngFor="let data of topProduct; let i = index">
                 <div class="showAllProductMainBox">
-                    <div class="showProductBox">
+                    <div class="showProductBox" [routerLink]="['/products',data.id]">
 
                         <div class="product-budge">
                             <span class="ShowTop">TOP</span>
                         </div>
                         <div class="mainContain">
                             <div class="product-img">
-                                <a href="/">
+                                <a>
                                     <div class="productImageLimit">
-                                        <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
-                                        <img *ngIf="!data?.path" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                                        <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}"
+                                            alt="productImage">
+                                        <img *ngIf="!data?.path"
+                                            src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                                            alt="productImage">
                                     </div>
                                 </a>
                             </div>
@@ -245,10 +251,10 @@
                         </div>
                         <div class="upperContain">
                             <div class="product-cat">
-                                <a href="/">Covid 19</a>
+                                <a>Covid 19</a>
                             </div>
                             <div class="product-name">
-                                <a href="/">{{ data?.name }}</a>
+                                <a>{{ data?.name }}</a>
                             </div>
                             <div class="product-price">
                                 <div class="price">
@@ -279,45 +285,52 @@
                     </div>
                 </div>
                 <div class="divider"></div>
-                <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="300"
-                    [arrowsOutside]="true">
+                <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="500"
+                    [arrowsOutside]="false">
                     <div class="carousel-cell" *ngFor="let data of prod.product; let i = index">
                         <div class="showAllProductMainBox">
-                            <div class="showProductBox">
-        
+                            <div class="showProductBox" [routerLink]="['/products',data.id]">
+
                                 <div class="product-budge">
                                     <span class="ShowTop orenge">Best</span>
                                 </div>
                                 <div class="mainContain">
                                     <div class="product-img">
-                                        <a href="/">
+                                        <a>
                                             <div class="productImageLimit">
-                                                <img *ngIf="data?.photos[0]" src="{{ docServer }}/{{ data?.photos[0].docpath }}" alt="productImage">
-                                                <img *ngIf="!data?.photos[0]" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                                                <img *ngIf="data?.photos[0]"
+                                                    src="{{ docServer }}/{{ data?.photos[0].docpath }}"
+                                                    alt="productImage">
+                                                <img *ngIf="!data?.photos[0]"
+                                                    src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                                                    alt="productImage">
                                             </div>
                                         </a>
                                     </div>
                                     <div class="product-action">
                                         <div class="addToCart" mdbTooltip="Add to cart" placement="top">
-                                            <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
+                                            <div class="addToCartButton"><img src="assets/svg/newbag.svg"
+                                                    alt="add Cart"></div>
                                         </div>
                                         <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
-                                            <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                            <div class="wishlistButton"><img src="assets/svg/heartWhite.svg"
+                                                    alt="add Cart">
                                             </div>
                                         </div>
                                         <div class="compare" mdbTooltip="Compare" placement="top">
-                                            <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                                            <div class="compareButton"><img src="assets/svg/analytics.svg"
+                                                    alt="add Cart"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="upperContain">
                                     <div class="product-cat">
-                                        <a href="/">{{ data?.brand }}</a>
+                                        <a>{{ data?.brand }}</a>
                                     </div>
                                     <div class="product-name">
-                                        <a href="/">{{ data?.name }}</a>
+                                        <a>{{ data?.name }}</a>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -328,3 +341,40 @@
     </ng-container>
 </ng-container>
 
+<div class="hotItems">
+    <div class="makeCenter">
+        <div class="row header">
+            <div class="col-md-6 leftBox">
+                <span class="text">We love our clients</span>
+            </div>
+            <div class="col-md-6 rightBox">
+                <!-- <span class="text">View All Products</span>
+                <span class="img"><img src="assets/svg/right.svg" alt="proceed"></span> -->
+            </div>
+        </div>
+        <div class="divider"></div>
+        <carousel [loop]="true" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="3" [height]="350"
+            [arrowsOutside]="false">
+            <div class="carousel-cell" *ngFor="let data of cards">
+                <div class="testimonialSection">
+                    <div class="testimonialMainContain">
+                        <div class="tempContainer">
+                            <div class="content">
+                                <h4 class="title">{{data.title}} </h4>
+                                <div class="text">
+                                    {{data.description}}
+                                </div>
+                            </div>
+                            <div class="info">
+                                <div class="cite">
+                                    <h6 class="name">{{data.person}} </h6>
+                                    <span class="position">{{data.postion}} </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </carousel>
+    </div>
+</div>

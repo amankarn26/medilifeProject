@@ -22,16 +22,16 @@
 
 <div class="showProduct row" *ngIf="allProduct">
     <ng-container *ngFor="let data of allProduct; let i = index">
-        <div class="col-md-3" >
+        <div class="col-md-3">
             <div class="showAllProductMainBox">
-                <div class="showProductBox">
+                <div class="showProductBox" [routerLink]="['/products',data.id]">
     
                     <!-- <div class="product-budge">
                         <span class="ShowTop orenge">TOP</span>
                     </div> -->
                     <div class="mainContain">
                         <div class="product-img">
-                            <a href="/">
+                            <a>
                                 <div class="productImageLimit">
                                     <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
                                     <img *ngIf="!data?.path" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
@@ -74,3 +74,5 @@
     </ng-container>
     
 </div>
+
+<div class="" style="width:100%;height:200px"></div>
