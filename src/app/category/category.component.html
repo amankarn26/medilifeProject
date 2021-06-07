@@ -15,14 +15,15 @@
 
 <div class="infoProduct row">
     <div class="firstStatement col-md-6">We found 
-        <span>5</span>
+        <span *ngIf="allProduct">{{allProduct.length}}</span>
+        <span *ngIf="!allProduct">0</span>
         products available for you</div>
     <div class="secondStatement col-md-6"></div>
 </div>
 
 <div class="showProduct row" *ngIf="allProduct">
     <ng-container *ngFor="let data of allProduct; let i = index">
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-6">
             <div class="showAllProductMainBox">
                 <div class="showProductBox" [routerLink]="['/products',data.id]">
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from '../rest.service';
 
@@ -8,6 +8,9 @@ import { RestService } from '../rest.service';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
+
+  public innerWidth: any;
+  public selectedScreen: any;
 
   public productDetail:any
   public productLoaded = false;
@@ -30,12 +33,34 @@ export class ProductDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.innerWidth = window.innerWidth;
+    this.setSelectedScreen()
+
+
     window.scrollTo(0,0);
     this.prodID = this.routprms.snapshot.params['id'];
     if (this.prodID > 0) {
       this.getProductDetails()
     }
     this.getPopularProducts()
+  }
+
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.setSelectedScreen()
+  }
+
+  public setSelectedScreen() {
+    if (this.innerWidth > 1024) {
+      this.selectedScreen = 1
+    } else if (this.innerWidth > 769) {
+      this.selectedScreen = 2
+    } else {
+      this.selectedScreen = 3
+    }
   }
 
   private getProductDetails() {

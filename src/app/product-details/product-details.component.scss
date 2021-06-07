@@ -850,3 +850,24 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .showAllProductMainBox {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 769px) {
+  .leftContainer {
+    display: none !important;
+  }
+
+  .containerBox {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+
+    .productImageBox {
+      margin-bottom: 50px;
+    }
+  }
+}

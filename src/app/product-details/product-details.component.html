@@ -74,8 +74,8 @@
                                         <div class="addToCartButton">Add to cart</div>
                                     </div>
                                     <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
-                                        <div class="wishlistButton"><img src="assets/svg/heart.svg"
-                                                alt="add Cart"></div>
+                                        <div class="wishlistButton"><img src="assets/svg/heart.svg" alt="add Cart">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,8 @@
                 </div>
                 <div class="productDescription">
                     <h3 class="heading">Description</h3>
-                    <p>1-5L adjustable, Flow rate 1 L concentration 90% ± 2%, flow rate 2 L concentration 78% ± 2%, flow rate 3 L to 4 L concentration 50% ± 3%, flow rate 5 L concentration 30% ± 3%</p>
+                    <p>1-5L adjustable, Flow rate 1 L concentration 90% ± 2%, flow rate 2 L concentration 78% ± 2%, flow
+                        rate 3 L to 4 L concentration 50% ± 3%, flow rate 5 L concentration 30% ± 3%</p>
                 </div>
             </div>
         </div>
@@ -92,55 +93,170 @@
         <div class="sameProduct" *ngIf="topProductLoaded">
             <h2 class="heading">Related products</h2>
             <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="5" [height]="500"
-            [arrowsOutside]="true">
-            <div class="carousel-cell" *ngFor="let data of allProduct; let i = index">
-                <div class="showAllProductMainBox">
-                    <div class="showProductBox">
+                *ngIf="selectedScreen == 1" [arrowsOutside]="true">
+                <div class="carousel-cell" *ngFor="let data of allProduct; let i = index">
+                    <div class="showAllProductMainBox">
+                        <div class="showProductBox">
 
-                        <!-- <div class="product-budge">
+                            <!-- <div class="product-budge">
                             <span class="ShowTop">TOP</span>
                         </div> -->
-                        <div class="mainContain">
-                            <div class="product-img">
-                                <a>
-                                    <div class="productImageLimit">
-                                        <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
-                                        <img *ngIf="!data?.path" src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg" alt="productImage">
+                            <div class="mainContain">
+                                <div class="product-img">
+                                    <a>
+                                        <div class="productImageLimit">
+                                            <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}"
+                                                alt="productImage">
+                                            <img *ngIf="!data?.path"
+                                                src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                                                alt="productImage">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                        <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart">
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="product-action">
-                                <div class="addToCart" mdbTooltip="Add to cart" placement="top">
-                                    <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
-                                </div>
-                                <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
-                                    <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                    <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                        <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                    <div class="compare" mdbTooltip="Compare" placement="top">
+                                        <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="compare" mdbTooltip="Compare" placement="top">
-                                    <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
+                            </div>
+                            <div class="upperContain">
+                                <div class="product-cat">
+                                    <a>Covid 19</a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="upperContain">
-                            <div class="product-cat">
-                                <a>Covid 19</a>
-                            </div>
-                            <div class="product-name">
-                                <a>{{ data?.name }}</a>
-                            </div>
-                            <div class="product-price" *ngIf="data?.rateperunit">
-                                <div class="price">
-                                    <bdi>
-                                        &#8377; {{ data?.rateperunit }}
-                                    </bdi>
+                                <div class="product-name">
+                                    <a>{{ data?.name }}</a>
+                                </div>
+                                <div class="product-price" *ngIf="data?.rateperunit">
+                                    <div class="price">
+                                        <bdi>
+                                            &#8377; {{ data?.rateperunit }}
+                                        </bdi>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </carousel>
+            </carousel>
+            <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="2" [height]="500"
+                *ngIf="selectedScreen == 2" [arrowsOutside]="true">
+                <div class="carousel-cell" *ngFor="let data of allProduct; let i = index">
+                    <div class="showAllProductMainBox">
+                        <div class="showProductBox">
+
+                            <!-- <div class="product-budge">
+                            <span class="ShowTop">TOP</span>
+                        </div> -->
+                            <div class="mainContain">
+                                <div class="product-img">
+                                    <a>
+                                        <div class="productImageLimit">
+                                            <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}"
+                                                alt="productImage">
+                                            <img *ngIf="!data?.path"
+                                                src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                                                alt="productImage">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                        <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                    <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                        <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                    <div class="compare" mdbTooltip="Compare" placement="top">
+                                        <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="upperContain">
+                                <div class="product-cat">
+                                    <a>Covid 19</a>
+                                </div>
+                                <div class="product-name">
+                                    <a>{{ data?.name }}</a>
+                                </div>
+                                <div class="product-price" *ngIf="data?.rateperunit">
+                                    <div class="price">
+                                        <bdi>
+                                            &#8377; {{ data?.rateperunit }}
+                                        </bdi>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </carousel>
+            <carousel [loop]="false" [cellsToScroll]="1" [lightDOM]="true" [cellsToShow]="1" [height]="500"
+                *ngIf="selectedScreen == 3" [arrowsOutside]="true">
+                <div class="carousel-cell" *ngFor="let data of allProduct; let i = index">
+                    <div class="showAllProductMainBox">
+                        <div class="showProductBox">
+
+                            <!-- <div class="product-budge">
+                            <span class="ShowTop">TOP</span>
+                        </div> -->
+                            <div class="mainContain">
+                                <div class="product-img">
+                                    <a>
+                                        <div class="productImageLimit">
+                                            <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}"
+                                                alt="productImage">
+                                            <img *ngIf="!data?.path"
+                                                src="https://sainfoinc.com/wp-content/uploads/2018/02/image-not-available.jpg"
+                                                alt="productImage">
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-action">
+                                    <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                                        <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                    <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                        <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                    <div class="compare" mdbTooltip="Compare" placement="top">
+                                        <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="upperContain">
+                                <div class="product-cat">
+                                    <a>Covid 19</a>
+                                </div>
+                                <div class="product-name">
+                                    <a>{{ data?.name }}</a>
+                                </div>
+                                <div class="product-price" *ngIf="data?.rateperunit">
+                                    <div class="price">
+                                        <bdi>
+                                            &#8377; {{ data?.rateperunit }}
+                                        </bdi>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </carousel>
         </div>
     </div>
 </div>

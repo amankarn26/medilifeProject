@@ -128,7 +128,7 @@
 // For Hot Items and product Show
 
 .hotItems {
-  padding: 50px 50px 57px 50px;
+  padding: 10px 50px 17px 50px;
   position: relative;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1187,4 +1187,43 @@
   background-size: 100% auto;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.extraPaddingBottom {
+  padding-bottom: 70px;
+}
+
+
+// For Responsive cust created by aman
+
+@media (max-width: 1024px) {
+  .showProductMainBox {
+    width: 100%;
+
+    .product-img {
+      height: 300px !important;
+    }
+  }
+  .showAllProductMainBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  .innerBox {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+
+    .product-img {
+      height: 300px !important;
+    }
+  }
+
+  .hotItems {
+    padding: 10px 10px 17px 10px;
+
+    .rightBox {
+      margin-top: 20px;
+    }
+  }
 }

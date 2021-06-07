@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestService } from '../rest.service';
 
@@ -8,6 +8,9 @@ import { RestService } from '../rest.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
+
+  public innerWidth: any;
+  public selectedScreen: any;
 
   // All Variables
   public hotdeals:any;
@@ -51,6 +54,10 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.innerWidth = window.innerWidth;
+    this.setSelectedScreen()
+
     this.getOffers()
     this.showSlides(1)
     this.firstImage()
@@ -58,6 +65,22 @@ export class HomepageComponent implements OnInit {
     this.getProductType()
     this.getTopProduct()
     this.getAllProductType()
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.setSelectedScreen()
+  }
+
+  public setSelectedScreen() {
+    if (this.innerWidth > 1024) {
+      this.selectedScreen = 1
+    } else if (this.innerWidth > 769) {
+      this.selectedScreen = 2
+    } else {
+      this.selectedScreen = 3
+    }
   }
 
   public getDetailsProduct(getProdID:number) {
