@@ -9,11 +9,11 @@
                 <a href="tel:+8819906886" class="info-link">
 
 
-                  <span class="info-text">(+88) - 1990 - 6886</span>
+                  <span class="info-text">(+91) - 9990 - 6886</span>
                 </a>
               </li>
               <li class="info-item">
-                <a href="https://www.google.com/maps" class="info-link">
+                <a href="https://maps.google.com/maps?ll=21.114994,78.994371&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&cid=18139473607136659581" class="info-link">
 
 
                   <span class="info-text">Store location</span>
@@ -43,7 +43,7 @@
               </ul>
             </div>
           </div>
-          <a href="/" class="loginButton" title="Log In / Sign Up">Log In / Sign
+          <a [routerLink]="[ '/']" class="loginButton" title="Log In / Sign Up">Log In / Sign
             Up</a>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="boxRow">
         <div class="brand">
           <div class="brandingLogo">
-            <a href="/" rel="home">
+            <a [routerLink]="[ '/']" rel="home">
               <img src="assets/logo/Cleanlogo.png" alt="Medilife" class="logo">
             </a>
           </div>
@@ -65,10 +65,162 @@
           <nav class="navbar">
             <ul class="nav navbar-nav extraNav">
               <li class="active"><a [routerLink]="[ '/']">Home</a></li>
-              <li><a href="#">Covid 19</a></li>
-              <li><a href="#">Carmino Cosmetics</a></li>
-              <li><a href="#">Medicines</a></li>
-              <li><a href="#">Patent Medicines</a></li>
+
+              <li>
+                <a [routerLink]="[ '/']">Covid 19</a>
+                <ul class="sub-menu">
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['/category', 'COVID-19 MEDICINE RANGE']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Medicine Range </span></div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'COVID-19 HAND SAFETY RANGE']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Hand Safety</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <a [routerLink]="[ '/']">Carmino Cosmetics</a>
+                <ul class="sub-menu">
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'SOAPS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Shop</span></div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'HAIR OIL']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Hair Oil</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'SHAMPOO']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Shampoo</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'VETERINARY SHAMPOO']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Veterinary Shampoo</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'CREAMS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Creams</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'BEAUTY CARE']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Beauty Care</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'MOISTURIZING LOTION']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Moisturising Lotion</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'TALCUM POWDER']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Talcum Power</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'HAIR STYLER']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Hair Styler</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a [routerLink]="[ '/']">Medicines</a>
+                <ul class="sub-menu">
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'DILUTION']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Dilutions</span></div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'MOTHER TINCTURES']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Mother Tinctures</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'BI0 CHEMICS TRITURATION TABLETS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Trituration Tablets</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'SUGAR GLOBULES']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Sugar Globules</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'LACTOSE SUGAR OF MILK']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Lactose</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a [routerLink]="[ '/']">Patent Medicines</a>
+                <ul class="sub-menu">
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'TABLETS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Tablets</span></div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'DROPS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Drops</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'MEDILIFE DROPS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Medilife Drops</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'MASSAGE OIL']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Massage Oil</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'TONICS / SYRUPS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Tonics / Syrups</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'PILLS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Pills</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="inner-menu-item">
+                    <a [routerLink]="['category', 'OINTMENTS']">
+                      <div class="menu-item-wrap"><span class="menu-item-title">Ointments</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>
@@ -200,12 +352,12 @@
 <div style="overflow:hidden;resize:none;max-width:100%;width:100%;height:500px;">
   <div id="embeddedmap-canvas" style="height:100%; width:100%;max-width:100%;">
     <iframe style="height:100%;width:100%;border:0;" frameborder="0"
-      src="https://www.google.com/maps/embed/v1/place?q=Medlife+Pathology+Lab&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+      src="https://www.google.com/maps/embed/v1/place?q=Medilife+Impex+Pvt+Ltd&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
   </div>
-  <a class="googlemap-enabler" href="https://www.embed-map.com"
-    id="grabmaps-authorization">https://www.embed-map.com</a>
   <style>
-    #embeddedmap-canvas .text-marker {}
+    #embeddedmap-canvas .text-marker {
+      width: 100%;
+    }
 
     .map-generator {
       max-width: 100%;
@@ -214,6 +366,14 @@
     }
   </style>
 </div>
+
+
+
+
+
+
+
+
 
 <footer>
   <div class="footerArea">
@@ -249,7 +409,8 @@
           <div class="email">info@medilife.com</div>
           <div class="paymentGateway">
             <div class="infoText">Secured Payment Gateways</div>
-            <div class="infoImg"><img src="https://medizin.thememove.com/wp-content/uploads/2020/04/payment-methods.png" alt="payment Method"></div>
+            <div class="infoImg"><img src="https://medizin.thememove.com/wp-content/uploads/2020/04/payment-methods.png"
+                alt="payment Method"></div>
           </div>
         </div>
       </div>
