@@ -13,7 +13,8 @@
                 </a>
               </li>
               <li class="info-item">
-                <a href="https://maps.google.com/maps?ll=21.114994,78.994371&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&cid=18139473607136659581" class="info-link">
+                <a href="https://maps.google.com/maps?ll=21.114994,78.994371&z=16&t=m&hl=en-GB&gl=US&mapclient=embed&cid=18139473607136659581"
+                  class="info-link">
 
 
                   <span class="info-text">Store location</span>
@@ -233,39 +234,49 @@
               <img src="assets/svg/heart.svg" alt="search">
             </a>
             <div id="mini-cart" class="mini-cart style-normal">
-              <a href="/" class="mini-cart__button header-icon" title="View your shopping cart" style="opacity: 1;">
+              <a class="mini-cart__button header-icon" title="View your shopping cart" style="opacity: 1;">
                 <span class="mini-cart-icon" [attr.data-count]="cartItem"></span>
               </a>
               <div class="widget_shopping_cart_content" style="opacity: 1;" *ngIf="cartItem > 0">
 
                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                  <li class="woocommerce-mini-cart-item mini_cart_item">
+                  <li class="woocommerce-mini-cart-item mini_cart_item" style="margin-bottom:5px"
+                    *ngFor="let item of cartData; let i = index">
 
-                    <a href="/" class="remove remove_from_cart_button" aria-label="Remove this item"
+                    <a (click)="removeProduct(i)" class="remove remove_from_cart_button" aria-label="Remove this item"
                       data-product_id="2212" data-cart_item_key="05a70454516ecd9194c293b0e415777f"
                       data-product_sku="SF87456475">×</a>
-                    <a href="https://medizin.thememove.com/shop/oyster-plus-zinc-2/">
-                      <img width="150" height="150"
-                        src="https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-150x150.png"
-                        class="attachment-thumbnail size-thumbnail" alt="" loading="lazy"
-                        srcset="https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-150x150.png 150w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-300x300.png 300w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-1024x1024.png 1024w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-768x768.png 768w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-600x600.png 600w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-100x100.png 100w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9-96x96.png 96w, https://medizin.thememove.com/wp-content/uploads/2020/12/Image-9.png 1200w"
-                        sizes="(max-width: 150px) 100vw, 150px">Oyster PLus Zinc 2 </a>
+                    <a>
+                      <img width="150" height="150" src="{{item.img}}" class="attachment-thumbnail size-thumbnail"
+                        alt="" loading="lazy">
+                      {{item.name}}
+                    </a>
 
-                    <span class="quantity">1 × <span class="woocommerce-Price-amount amount"><bdi><span
-                            class="woocommerce-Price-currencySymbol">$</span>49.00</bdi></span></span>
+                    <span class="quantity">
+                      {{item.quantity}} ×
+                      <span class="woocommerce-Price-amount amount">
+                        <bdi>
+                          {{item.ratewithgst | currency:'INR': 'symbol'}}
+                        </bdi>
+                      </span>
+                    </span>
                   </li>
                 </ul>
 
                 <div class="cart-footer">
                   <div class="woocommerce-mini-cart__total total">
-                    <strong>Total:</strong> <span class="woocommerce-Price-amount amount"><bdi><span
-                          class="woocommerce-Price-currencySymbol">$</span>49.00</bdi></span>
+                    <strong>Total:</strong>
+                    <span class="woocommerce-Price-amount amount">
+                      <bdi>
+                        {{ cartTotal | currency:'INR': 'symbol'}}
+                      </bdi>
+                    </span>
                   </div>
 
 
                   <div class="woocommerce-mini-cart__buttons buttons">
-                    <a href="/" class="button wc-forward">View cart</a><a href="/"
-                      class="button checkout wc-forward">Checkout</a>
+                    <a class="button wc-forward" [routerLink]="['/cart']" >View cart</a>
+                    <a class="button checkout wc-forward" [routerLink]="['/cart']" >Checkout</a>
                   </div>
                 </div>
 

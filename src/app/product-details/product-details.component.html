@@ -58,20 +58,42 @@
                                     <span>{{productDetail.brand}}</span>
                                 </div>
                                 <!-- <div class="productPrice">&#8377; 45</div> -->
-                                <div class="productPrice">Comming Soon</div>
-                                <div class="demoNote">We provide the best Medicines</div>
+                                <div *ngIf="isPageLoaded">
+                                    <div class="productPrice" *ngIf="!selectedStock.rateperunit">Comming Soon</div>
+                                    <div class="productPrice" *ngIf="selectedStock.rateperunit">
+                                        {{selectedStock.rateperunit | currency:'INR': 'symbol'}}</div>
+                                </div>
+                                <div *ngIf="!isPageLoaded">
+                                    <div class="productPrice">Comming Soon</div>
+                                </div>
+                                <div class="demoNote" *ngIf="!VarinetData">We Provide the best Product.</div>
+
+                                <div class="varientDetails" *ngIf="VarinetData">
+                                    <div class="showvarient row">
+                                        <div class="col-md-4" *ngFor="let item of VarinetData; let i = index">
+                                            <div class="productVarientActive" *ngIf="variant === item.name">
+                                                {{item.name}}</div>
+                                            <div class="productVarient" *ngIf="variant != item.name && item.enable"
+                                                (click)="changeVarient(item.name)">{{item.name}}</div>
+                                            <div class="productVarientDisabled"
+                                                *ngIf="variant != item.name && !item.enable"
+                                                (click)="alertVarientDisabled()">{{item.name}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="quentityBox">
                                     <label>Quantity</label>
                                     <div class="quentity">
-                                        <button class="inc"></button>
-                                        <input type="number" class="qtyBox" value="1" />
-                                        <button class="dsc"></button>
+                                        <button class="inc" (click)="increaseQty()"></button>
+                                        <input type="number" class="qtyBox" value="1" [ngModel]="qty"/>
+                                        <button class="dsc" (click)="decreaseQty()"></button>
                                     </div>
                                 </div>
 
                                 <div class="product-action">
                                     <div class="addToCart" mdbTooltip="Add to cart" placement="top">
-                                        <div class="addToCartButton">Add to cart</div>
+                                        <div class="addToCartButton" (click)="addToCart()">Add to cart</div>
                                     </div>
                                     <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
                                         <div class="wishlistButton"><img src="assets/svg/heart.svg" alt="add Cart">

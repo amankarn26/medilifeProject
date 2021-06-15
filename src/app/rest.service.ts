@@ -113,6 +113,9 @@ export class RestService {
       case 'allproductype':
         url += '/product/producttype';
         break;
+      case 'getCompleteProductDetails':
+        url += '/compact/product?product=' + stateId;
+        break;
       default:
         url += '/offer/hotdeal/' + stateId;
         break;
