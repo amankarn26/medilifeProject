@@ -122,4 +122,42 @@ export class RestService {
     }
     return url;
   }
+
+  public loginRest(restid: string, stateId : any) {
+    let url = this.server;
+    switch (restid) {
+      case 'getState':
+        url += '/common/pincode?pin=' + stateId;
+        break;
+      case 'addCutomer':
+        url += '/customer';
+        break;
+      case 'login':
+        url += '/login';
+        break;
+      case 'allproductype':
+        url += '/product/producttype';
+        break;
+      default:
+        url += '/offer/hotdeal/' + stateId;
+        break;
+    }
+    return url;
+  }
+
+  public orderRest(restid: string, stateId : any) {
+    let url = this.server;
+    switch (restid) {
+      case 'add':
+        url += '/order';
+        break;
+      case 'getDeliveryCharge':
+        url += '/dcharge' + stateId;
+        break;
+      default:
+        url += '/order';
+        break;
+    }
+    return url;
+  }
 }

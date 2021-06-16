@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { CategoryComponent } from './category/category.component';
+import { AboutComponent } from './company/about/about.component';
+import { ContactComponent } from './company/contact/contact.component';
+import { PrivacyComponent } from './company/privacy/privacy.component';
+import { TermComponent } from './company/term/term.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
@@ -14,6 +19,15 @@ const routes: Routes = [
   { path: 'products/:id', component:  ProductDetailsComponent },
 
   { path: 'cart', component:  CartPageComponent },
+
+  { path: 'login', component:  LoginComponent },
+
+  { path: 'company/about', component:  AboutComponent },
+  { path: 'company/contact', component:  ContactComponent },
+  { path: 'company/privacy', component:  PrivacyComponent },
+  { path: 'company/term', component:  TermComponent },
+
+  
 ];
 
 @NgModule({

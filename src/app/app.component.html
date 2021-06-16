@@ -44,8 +44,8 @@
               </ul>
             </div>
           </div>
-          <a [routerLink]="[ '/']" class="loginButton" title="Log In / Sign Up">Log In / Sign
-            Up</a>
+          <a *ngIf="islogin == 'true'" class="loginButton" title="Log In / Sign Up">Welcome {{custname}}</a>
+          <a [routerLink]="['/login']" *ngIf="islogin != 'true'" class="loginButton" title="Log In / Sign Up">Log In / Sign Up</a>
         </div>
       </div>
     </div>
@@ -83,7 +83,6 @@
                   </li>
                 </ul>
               </li>
-
               <li>
                 <a [routerLink]="[ '/']">Carmino Cosmetics</a>
                 <ul class="sub-menu">
@@ -379,13 +378,6 @@
 </div>
 
 
-
-
-
-
-
-
-
 <footer>
   <div class="footerArea">
     <div class="row extraStyle">
@@ -407,17 +399,17 @@
         <div class="showList">
           <div class="heading">Our Company</div>
           <div class="listItem">
-            <div class="item">About Us</div>
-            <div class="item">Terms and Conditions</div>
-            <div class="item">Privacy Policy</div>
-            <div class="item">Contact us</div>
+            <div class="item" [routerLink]="['/company/about']">About Us</div>
+            <div class="item" [routerLink]="['/company/term']">Terms and Conditions</div>
+            <div class="item" [routerLink]="['/company/privacy']">Privacy Policy</div>
+            <div class="item" [routerLink]="['/company/contact']">Contact us</div>
           </div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="emailShow">
           <div class="heading">Work Inquiries</div>
-          <div class="email">info@medilife.com</div>
+          <div class="email"><a href="mailto:info@medilife.com" style="text-decoration: none;">info@medilife.com</a></div>
           <div class="paymentGateway">
             <div class="infoText">Secured Payment Gateways</div>
             <div class="infoImg"><img src="https://medizin.thememove.com/wp-content/uploads/2020/04/payment-methods.png"

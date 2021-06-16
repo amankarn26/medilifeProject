@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartServiceService } from '../cart/cart-service.service';
 import { RestService } from '../rest.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-product-details',
@@ -315,7 +316,21 @@ export class ProductDetailsComponent implements OnInit {
       this.product.amount = this.product.price * this.product.quantity + this.product.gstamt;
       this.product.variant = this.variant;
 
+      localStorage.setItem("selectedFirm", this.selectedStock.branch)
+
+      console.log(this.selectedStock)
+
       this.cartService.addProduct(JSON.parse(JSON.stringify(this.product)));
+
+      let msg = this.productDetail.name + " of " + this.variant + " is added to cart."
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Added to cart',
+        text: msg,
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
   }
 }

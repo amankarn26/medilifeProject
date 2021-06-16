@@ -12,6 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './category/category.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
+import { AboutComponent } from './company/about/about.component';
+import { TermComponent } from './company/term/term.component';
+import { PrivacyComponent } from './company/privacy/privacy.component';
+import { ContactComponent } from './company/contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,12 @@ import { CartPageComponent } from './cart-page/cart-page.component';
     HomepageComponent,
     CategoryComponent,
     ProductDetailsComponent,
-    CartPageComponent
+    CartPageComponent,
+    AboutComponent,
+    TermComponent,
+    PrivacyComponent,
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +40,9 @@ import { CartPageComponent } from './cart-page/cart-page.component';
     HttpClientModule,
     MDBBootstrapModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide : LocationStrategy , useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

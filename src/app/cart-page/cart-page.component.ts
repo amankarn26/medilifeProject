@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartServiceService } from '../cart/cart-service.service';
+import { RestService } from '../rest.service';
+import Swal from 'sweetalert2'
+
+declare var Razorpay: any;
 
 @Component({
   selector: 'app-cart-page',
@@ -11,6 +16,8 @@ export class CartPageComponent implements OnInit {
   cartItem = this.cartService.getCartCount();
   cartData = this.cartService.getCart();
   cartTotal = this.cartService.getCartTotal();
+
+  islogin = localStorage.getItem('islogin');
 
   // For Order Booking
   public order = {
@@ -47,10 +54,13 @@ export class CartPageComponent implements OnInit {
 
   private oentry = [{}];
 
-  constructor(private cartService: CartServiceService) { }
+  constructor(private cartService: CartServiceService, private restService: RestService, private route: Router) { }
 
   ngOnInit(): void {
     this.populateOrder()
+    this.getDeliveryCharger()
+
+    this.islogin = localStorage.getItem('islogin');
   }
 
   public removeProduct(index:number) {
@@ -81,6 +91,25 @@ export class CartPageComponent implements OnInit {
     this.cartTotal = this.cartService.getCartTotal();
 
     this.populateOrder();
+  }
+
+  private getDeliveryCharger() {
+    const urlstr = "?branch=" + localStorage.getItem('selectedFirm') + "&customer=" + localStorage.getItem('id');
+    const url = this.restService.orderRest('getDeliveryCharge', urlstr);
+    this.restService.getJSONFromURL(url).subscribe(
+      (response: any) => {
+        if (response.status === 'Success') {
+          this.order.qcost.delivery = Number(response.charge);
+          this.order.qcost.finalamt += this.order.qcost.delivery
+        } else {
+          console.log('Delivery Person Not Available');
+        }
+      },
+      error => {
+        console.log('Error in data load.');
+        
+      }
+    );
   }
 
   // For Order
@@ -121,9 +150,89 @@ export class CartPageComponent implements OnInit {
       }, 0);
       this.order.qcost.finalamt = this.cartData.reduce((a, b) => {
         return a + b.amount
-      }, 0);
+      }, 0) + this.order.qcost.delivery;
 
       this.order.oentry = this.oentry;
     }
+  }
+
+  initPay() {
+
+
+    // payment json
+    this.order.qcost.finalamt = Math.ceil(this.order.qcost.finalamt);
+    let options: any = {
+      key: 'rzp_test_dTV5HlVstVMqVg', // Enter the Key ID generated from the Dashboard
+      amount: this.order.qcost.finalamt * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: 'INR',
+      name: 'Medilife.',
+      description: 'Test Transaction',
+      image: 'http://45.32.62.106:8090/product/assets/logo/Cleanlogo.png',
+      handler: this.submitData.bind(this),
+      prefill: {
+        name: localStorage.getItem('name'),
+        email: localStorage.getItem('email'),
+        contact: localStorage.getItem('phone'), 
+      },
+      notes: {
+        address: 'Razorpay Corporate Office'
+      },
+      theme: {
+        color: '#F37254'
+      }
+    };
+
+
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+  }
+
+  submitData(response: any) {
+    this.order.transactionid = response.razorpay_payment_id;
+    
+    this.order.branch = localStorage.getItem('selectedFirm')
+
+    Swal.fire({
+      icon: 'info',
+      title: 'Please wait',
+      text: "We are booking you order",
+      allowOutsideClick: false,
+      showConfirmButton: false
+    })
+
+    const url = this.restService.orderRest('add', '');
+    this.restService.postFormData(url, this.order).subscribe(
+      (response: any) => {
+        this.cartService.clearAll();
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Your Order booked!',
+          text: "Enjoy Shopping",
+          showConfirmButton: false,
+          timer: 1500,
+          willClose: () => {
+            this.route.navigate(['/']);
+          }
+        })
+        
+
+        // location.reload();
+
+      }, error => {
+        console.log("Order Not done")
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Order Not Booked!',
+          text: "Please contect us for refend. If money debited.",
+          showConfirmButton: false,
+          timer: 5000,
+          willClose: () => {
+            this.route.navigate(['/']);
+          }
+        })
+      }
+    );
   }
 }

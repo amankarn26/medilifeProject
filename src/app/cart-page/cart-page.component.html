@@ -99,6 +99,16 @@
                                     </span>
                                 </td>
                             </tr>
+                            <tr class="cart-shipping" *ngIf="order.qcost.delivery > 0">
+                                <th>Delivery Changers</th>
+                                <td>
+                                    <span class="woocommerce-Price-amount amount">
+                                        <bdi>
+                                            {{order.qcost.delivery | currency:'INR': 'symbol'}}
+                                        </bdi>
+                                    </span>
+                                </td>
+                            </tr>
                             <tr class="cart-shipping">
                                 <th>Taxes</th>
                                 <td>
@@ -123,7 +133,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="action-btn lastLoginBtn">Login</div>
+                    <div class="action-btn lastLoginBtn" (click)="initPay()" *ngIf="islogin == 'true'" >Proceed To Checkout</div>
+                    <div class="action-btn lastLoginBtn" [routerLink]="['/login']" *ngIf="islogin != 'true'" >Login</div>
                 </div>
             </div>
         </div>

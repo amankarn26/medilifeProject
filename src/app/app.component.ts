@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartServiceService } from './cart/cart-service.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { CartServiceService } from './cart/cart-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'welcome';
 
   cartItem = this.cartService.getCartCount();
@@ -15,13 +16,23 @@ export class AppComponent {
   cartTotal = this.cartService.getCartTotal();
   stickNav = false;
 
+  islogin = localStorage.getItem('islogin');
+
+  custname = localStorage.getItem('name');
+
   constructor(
     @Inject(DOCUMENT) document: Document,
-    private cartService: CartServiceService
+    private cartService: CartServiceService,
+    private router: Router
   ) {
     setInterval(() => {
       this.refreshData()
     },2000)
+  }
+
+  ngOnInit() {
+    console.log('AMan')
+    this.router.navigate(['/'])
   }
 
   @HostListener('window:scroll', [])
