@@ -24,16 +24,22 @@
                         </label>
                         <input type="number" class="inputBox" name="name" pattern="[0-9]{10}" required [(ngModel)]="login.username" />
                     </div>
-                    <div class="getPassword">
+                    <div class="getPassword" *ngIf="!isOtp">
                         <label for="password">Password
                             <span class="required">*</span>
                         </label>
                         <input type="password" class="inputBox" name="password" required [(ngModel)]="login.password" />
                     </div>
+                    <div class="getPassword" *ngIf="isOtp">
+                        <label for="password">Enter OTP
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number" class="inputBox" name="otp" required [(ngModel)]="login.password" />
+                    </div>
                     <div class="lostPassword">
                         <div class="row">
                             <div class="col-md-6 leftBox">
-                                <a href="" class="innerButton">Login with OTP</a>
+                                <a (click)="getOTP()" class="innerButton">{{otpBtn}}</a>
                             </div>
                             <div class="col-md-6 rightBox">
                                 <!-- <a href="" class="innerButton">Lost your password?</a> -->
@@ -41,7 +47,8 @@
                         </div>
                     </div>
                     <div class="loginBtn">
-                        <button type="button" class="action-btn" [disabled]="!form2.valid" (click)="loginNow()">Login</button>
+                        <button type="button" *ngIf="!isOtp" class="action-btn" [disabled]="!form2.valid" (click)="loginNow()">Login</button>
+                        <button type="button" *ngIf="isOtp" class="action-btn" [disabled]="!form2.valid" (click)="loginNowOtp()">Verify and Login</button>
                     </div>
                 </form>
             </div>
@@ -77,13 +84,13 @@
                         <label for="username">Address Line 1
                             <span class="required">*</span>
                         </label>
-                        <input type="text" class="inputBox" name="add1" required [(ngModel)]="user.address.line1" />
+                        <input type="text" class="inputBox" pattern="[a-zA-Z0-9_ ]*" name="add1" required [(ngModel)]="user.address.line1" />
                     </div>
                     <div class="getUsername">
                         <label for="username">Address Line 2
                             <span class="required">*</span>
                         </label>
-                        <input type="text" class="inputBox" name="add2" required [(ngModel)]="user.address.line2" />
+                        <input type="text" class="inputBox" pattern="[a-zA-Z0-9_ ]*" name="add2" required [(ngModel)]="user.address.line2" />
                     </div>
                     <div class="getUsername">
                         <label for="username">Pincode

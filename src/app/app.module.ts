@@ -18,6 +18,7 @@ import { PrivacyComponent } from './company/privacy/privacy.component';
 import { ContactComponent } from './company/contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     TermComponent,
     PrivacyComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

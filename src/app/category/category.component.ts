@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from '../rest.service';
 
@@ -7,7 +7,7 @@ import { RestService } from '../rest.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit,OnChanges {
 
   public prodTypeName:any
   public allProduct:any
@@ -32,7 +32,12 @@ export class CategoryComponent implements OnInit {
       this.getAllProduct()
       this.prodTypeName = "Products"
     }
+    console.log("Working on init")
 
+  }
+
+  ngOnChanges(): void {
+    console.log("Working on change")
   }
 
   private getAllProduct() {

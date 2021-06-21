@@ -9,6 +9,7 @@ import { TermComponent } from './company/term/term.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component:  HomepageComponent,  },
@@ -22,12 +23,18 @@ const routes: Routes = [
 
   { path: 'login', component:  LoginComponent },
 
+  { path: 'profile', component:  ProfileComponent },
+  { path: 'order', component:  ProfileComponent },
+  { path: 'transection', component:  ProfileComponent },
+
   { path: 'company/about', component:  AboutComponent },
   { path: 'company/contact', component:  ContactComponent },
   { path: 'company/privacy', component:  PrivacyComponent },
   { path: 'company/term', component:  TermComponent },
 
-  
+
+  { path: '**', component:  HomepageComponent },
+
 ];
 
 @NgModule({

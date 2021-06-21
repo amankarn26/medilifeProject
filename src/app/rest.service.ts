@@ -135,11 +135,17 @@ export class RestService {
       case 'login':
         url += '/login';
         break;
-      case 'allproductype':
-        url += '/product/producttype';
+      case 'send':
+        url += '/sms/send';
+        break;
+      case 'update':
+        url += '/customer/update';
+        break;
+      case 'updatePass':
+        url += '/login/update';
         break;
       default:
-        url += '/offer/hotdeal/' + stateId;
+        url += '/customer';
         break;
     }
     return url;

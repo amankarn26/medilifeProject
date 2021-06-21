@@ -26,13 +26,13 @@ export class AppComponent implements OnInit {
     private router: Router
   ) {
     setInterval(() => {
-      this.refreshData()
-    },2000)
+      this.refreshData();
+    }, 2000);
   }
 
   ngOnInit() {
-    console.log('AMan')
-    this.router.navigate(['/'])
+    console.log('AMan');
+    this.router.navigate(['/']);
   }
 
   @HostListener('window:scroll', [])
@@ -61,5 +61,47 @@ export class AppComponent implements OnInit {
     this.cartItem = this.cartService.getCartCount();
     this.cartData = this.cartService.getCart();
     this.cartTotal = this.cartService.getCartTotal();
+  }
+
+  public navigateToCategory(additionalPaths: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/category', additionalPaths]);
+    });
+  }
+
+  public moveToProfile(profileType:number) {
+    if (localStorage.getItem('islogin') == "true") {
+      switch (profileType) {
+        case 1:
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/profile']);
+          });
+          break;
+        case 2:
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/order']);
+          });
+          break;
+        case 3:
+          this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['/transection']);
+          });
+          break;
+      
+        default:
+          break;
+      }
+    }
+    else {
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/login']);
+      });
+    }
+  }
+
+  public logout() {
+    localStorage.clear()
+    sessionStorage.clear()
+    location.reload()
   }
 }

@@ -26,25 +26,24 @@
       </div>
       <div class="col-md-6 top-bar-center">
         <div class="top-bar-wrap">
-          <div class="top-bar-text"><a href="#" class="top-bar-tag">COVID-19 UPDATE</a>We are open with limited hours
+          <div class="top-bar-text"><a [routerLink]="['/']" class="top-bar-tag">COVID-19 UPDATE</a>We are open with limited hours
             and staff.</div>
         </div>
       </div>
       <div class="col-md-3 top-bar-right">
         <div class="top-bar-wrap">
           <div id="switcher-language-wrapper" class="switcher-language-wrapper">
-
             <div class="box">
               <ul>
                 <li tabindex="0">
-                  <a href="#" class="js-wpml-ls-item-toggle wpml-ls-item-toggle">
+                  <a [routerLink]="[ '/']" class="js-wpml-ls-item-toggle wpml-ls-item-toggle">
                     <span class="wpml-ls-native">English</span>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
-          <a *ngIf="islogin == 'true'" class="loginButton" title="Log In / Sign Up">Welcome {{custname}}</a>
+          <a [routerLink]="[ '/profile']" *ngIf="islogin == 'true'" class="loginButton" title="Log In / Sign Up">Welcome {{custname}}</a>
           <a [routerLink]="['/login']" *ngIf="islogin != 'true'" class="loginButton" title="Log In / Sign Up">Log In / Sign Up</a>
         </div>
       </div>
@@ -71,12 +70,12 @@
                 <a [routerLink]="[ '/']">Covid 19</a>
                 <ul class="sub-menu">
                   <li class="inner-menu-item">
-                    <a [routerLink]="['/category', 'COVID-19 MEDICINE RANGE']">
+                    <a (click)="navigateToCategory('COVID-19 MEDICINE RANGE')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Medicine Range </span></div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'COVID-19 HAND SAFETY RANGE']">
+                    <a (click)="navigateToCategory('COVID-19 HAND SAFETY RANGE')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Hand Safety</span>
                       </div>
                     </a>
@@ -87,54 +86,54 @@
                 <a [routerLink]="[ '/']">Carmino Cosmetics</a>
                 <ul class="sub-menu">
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'SOAPS']">
+                    <a (click)="navigateToCategory('SOAPS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Shop</span></div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'HAIR OIL']">
+                    <a (click)="navigateToCategory('HAIR OIL')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Hair Oil</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'SHAMPOO']">
+                    <a (click)="navigateToCategory('SHAMPOO')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Shampoo</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'VETERINARY SHAMPOO']">
+                    <a (click)="navigateToCategory('VETERINARY SHAMPOO')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Veterinary Shampoo</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'CREAMS']">
+                    <a (click)="navigateToCategory('CREAMS')" >
                       <div class="menu-item-wrap"><span class="menu-item-title">Creams</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'BEAUTY CARE']">
+                    <a (click)="navigateToCategory('BEAUTY CARE')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Beauty Care</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'MOISTURIZING LOTION']">
+                    <a (click)="navigateToCategory('MOISTURIZING LOTION')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Moisturising Lotion</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'TALCUM POWDER']">
+                    <a (click)="navigateToCategory('TALCUM POWDER')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Talcum Power</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'HAIR STYLER']">
+                    <a (click)="navigateToCategory('HAIR STYLER')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Hair Styler</span>
                       </div>
                     </a>
@@ -145,30 +144,30 @@
                 <a [routerLink]="[ '/']">Medicines</a>
                 <ul class="sub-menu">
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'DILUTION']">
+                    <a (click)="navigateToCategory('DILUTION')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Dilutions</span></div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'MOTHER TINCTURES']">
+                    <a (click)="navigateToCategory('MOTHER TINCTURES')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Mother Tinctures</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'BI0 CHEMICS TRITURATION TABLETS']">
+                    <a (click)="navigateToCategory('BI0 CHEMICS TRITURATION TABLETS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Trituration Tablets</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'SUGAR GLOBULES']">
+                    <a (click)="navigateToCategory('SUGAR GLOBULES')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Sugar Globules</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'LACTOSE SUGAR OF MILK']">
+                    <a (click)="navigateToCategory('LACTOSE SUGAR OF MILK')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Lactose</span>
                       </div>
                     </a>
@@ -179,42 +178,42 @@
                 <a [routerLink]="[ '/']">Patent Medicines</a>
                 <ul class="sub-menu">
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'TABLETS']">
+                    <a (click)="navigateToCategory('TABLETS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Tablets</span></div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'DROPS']">
+                    <a (click)="navigateToCategory('DROPS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Drops</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'MEDILIFE DROPS']">
+                    <a (click)="navigateToCategory('MEDILIFE DROPS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Medilife Drops</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'MASSAGE OIL']">
+                    <a (click)="navigateToCategory('MASSAGE OIL')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Massage Oil</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'TONICS / SYRUPS']">
+                    <a (click)="navigateToCategory('TONICS / SYRUPS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Tonics / Syrups</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'PILLS']">
+                    <a (click)="navigateToCategory('PILLS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Pills</span>
                       </div>
                     </a>
                   </li>
                   <li class="inner-menu-item">
-                    <a [routerLink]="['category', 'OINTMENTS']">
+                    <a (click)="navigateToCategory('OINTMENTS')">
                       <div class="menu-item-wrap"><span class="menu-item-title">Ointments</span>
                       </div>
                     </a>
@@ -229,7 +228,7 @@
             <div class="header-component">
               <img src="assets/svg/search.svg" alt="search">
             </div>
-            <a href="/" class="header-component header-icon header-wishlist-link style-normal">
+            <a [routerLink]="['/']" class="header-component header-icon header-wishlist-link style-normal">
               <img src="assets/svg/heart.svg" alt="search">
             </a>
             <div id="mini-cart" class="mini-cart style-normal">
@@ -383,15 +382,16 @@
     <div class="row extraStyle">
       <div class="col-md-3 logoBox">
         <div class="logo"><img src="assets/logo/Cleanlogo.png" alt="logo"></div>
-        <div class="credit">© 2021 The TIE Up. <br> All Rights Reserved</div>
+        <!-- <div class="credit">© 2021 The TIE Up. <br> All Rights Reserved</div> -->
       </div>
       <div class="col-md-3">
         <div class="showList">
           <div class="heading">Customer Service</div>
           <div class="listItem">
-            <div class="item">My Profile</div>
-            <div class="item">My Orders</div>
-            <div class="item">My Account</div>
+            <div class="item" (click)="moveToProfile(1)">My Profile</div>
+            <div class="item" (click)="moveToProfile(2)">My Orders</div>
+            <div class="item" (click)="moveToProfile(3)">My Transection</div>
+            <div class="item" *ngIf="islogin == 'true'" (click)="logout()">Logout</div>
           </div>
         </div>
       </div>
@@ -417,6 +417,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row" style="text-align: center;">
+      <div class="credit" style="margin: 20px auto;">© 2021 The TIE Up. All Rights Reserved</div>
     </div>
   </div>
 </footer>
