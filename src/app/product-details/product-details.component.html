@@ -5,7 +5,7 @@
                 <a href="/">Home</a>
             </div>
             <span class="cat" [routerLink]="[ '/category']">/ &nbsp;&nbsp; Product</span>
-            <span class="name">/ &nbsp;&nbsp; Aman</span>
+            <span class="name">/ &nbsp;&nbsp; {{productDetail.name}}</span>
         </div>
     </div>
 </div>
@@ -95,7 +95,7 @@
                                     <div class="addToCart" mdbTooltip="Add to cart" placement="top">
                                         <div class="addToCartButton" (click)="addToCart()">Add to cart</div>
                                     </div>
-                                    <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
+                                    <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top" (click)="addToWishList()">
                                         <div class="wishlistButton"><img src="assets/svg/heart.svg" alt="add Cart">
                                         </div>
                                     </div>

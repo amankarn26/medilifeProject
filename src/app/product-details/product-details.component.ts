@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CartServiceService } from '../cart/cart-service.service';
 import { RestService } from '../rest.service';
 import Swal from 'sweetalert2'
+import { DatePipe } from '@angular/common';
+import { WishlistServiceService } from '../wishlist-service.service';
 
 @Component({
   selector: 'app-product-details',
@@ -64,7 +66,9 @@ export class ProductDetailsComponent implements OnInit {
     private route: Router,
     public routprms: ActivatedRoute,
     private restService: RestService,
-    private cartService: CartServiceService
+    private cartService: CartServiceService,
+    private wishlist: WishlistServiceService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -327,6 +331,47 @@ export class ProductDetailsComponent implements OnInit {
       Swal.fire({
         icon: 'success',
         title: 'Added to cart',
+        text: msg,
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+  }
+
+  public addToWishList() {
+    if (this.qty > 0) {
+
+      let myDate = new Date();
+      let productTowish 
+
+      if (this.VarinetData) {
+        productTowish = {
+          id: this.product.id,
+          name: this.product.name,
+          img: this.product.img,
+          price: this.selectedStock.rateperunit,
+          date: this.datePipe.transform(myDate, 'dd-MM-yyyy'),
+          variant: this.variant,
+        };
+      } else {
+        productTowish = {
+          id: this.product.id,
+          name: this.productDetail.name,
+          img: this.docServer + "/" + this.productDetail.photos[0].docpath,
+          price: "0",
+          date: this.datePipe.transform(myDate, 'dd-MM-yyyy'),
+          variant: "-",
+        };
+      }
+
+
+      this.wishlist.addProduct(JSON.parse(JSON.stringify(productTowish)));
+
+      let msg = this.productDetail.name + " of " + this.variant + " is added to Wishlist."
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Added to Wishlist',
         text: msg,
         showConfirmButton: false,
         timer: 1500

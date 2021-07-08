@@ -10,6 +10,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: '', component:  HomepageComponent,  },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'products/:id', component:  ProductDetailsComponent },
 
   { path: 'cart', component:  CartPageComponent },
+
+  { path: 'wishlist', component:  WishlistComponent },
 
   { path: 'login', component:  LoginComponent },
 

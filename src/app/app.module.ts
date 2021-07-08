@@ -17,8 +17,9 @@ import { TermComponent } from './company/term/term.component';
 import { PrivacyComponent } from './company/privacy/privacy.component';
 import { ContactComponent } from './company/contact/contact.component';
 import { LoginComponent } from './login/login.component';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
     PrivacyComponent,
     ContactComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { ProfileComponent } from './profile/profile.component';
     MDBBootstrapModule.forRoot()
   ],
   providers: [
+    DatePipe,
     {provide : LocationStrategy , useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,9 @@
+import { DatePipe } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RestService } from '../rest.service';
+import { WishlistServiceService } from '../wishlist-service.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-homepage',
@@ -50,7 +53,9 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private route: Router,
-    private restService: RestService
+    private restService: RestService,
+    private wishlist: WishlistServiceService,
+    private datePipe: DatePipe
   ) { }
 
   ngOnInit(): void {
@@ -213,4 +218,24 @@ export class HomepageComponent implements OnInit {
       img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg'
     },
   ];
+
+  public addToWishList(product:any) {
+    let myDate = new Date();
+
+    console.log(product);
+
+    let productTowish = {
+      id: product.id,
+      name: product.name,
+      img: this.docServer + '/' + product.photos[0].docpath,
+      price: "0",
+      date: this.datePipe.transform(myDate, 'dd-MM-yyyy'),
+      variant: "-",
+    };
+
+
+    this.wishlist.addProduct(JSON.parse(JSON.stringify(productTowish)));
+
+    
+  }
 }

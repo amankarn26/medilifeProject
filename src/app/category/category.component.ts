@@ -1,6 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestService } from '../rest.service';
+import { WishlistServiceService } from '../wishlist-service.service';
 
 @Component({
   selector: 'app-category',
@@ -17,7 +19,9 @@ export class CategoryComponent implements OnInit,OnChanges {
   constructor(
     private route: Router,
     public routprms: ActivatedRoute,
-    private restService: RestService
+    private restService: RestService,
+    private wishlist: WishlistServiceService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -64,5 +68,25 @@ export class CategoryComponent implements OnInit,OnChanges {
         console.log("Error in data load.");
       }
     );
+  }
+
+  public addToWishList(product:any) {
+    let myDate = new Date();
+
+    console.log(product);
+
+    let productTowish = {
+      id: product.id,
+      name: product.name,
+      img: this.docServer + '/' + product.path,
+      price: "0",
+      date: this.datePipe.transform(myDate, 'dd-MM-yyyy'),
+      variant: "-",
+    };
+
+
+    this.wishlist.addProduct(JSON.parse(JSON.stringify(productTowish)));
+
+    
   }
 }

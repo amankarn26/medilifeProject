@@ -25,13 +25,13 @@
     <ng-container *ngFor="let data of allProduct; let i = index">
         <div class="col-md-3 col-sm-6">
             <div class="showAllProductMainBox">
-                <div class="showProductBox" [routerLink]="['/products',data.id]">
+                <div class="showProductBox" >
     
                     <!-- <div class="product-budge">
                         <span class="ShowTop orenge">TOP</span>
                     </div> -->
                     <div class="mainContain">
-                        <div class="product-img">
+                        <div class="product-img" [routerLink]="['/products',data.id]">
                             <a>
                                 <div class="productImageLimit">
                                     <img *ngIf="data?.path" src="{{ docServer }}/{{ data?.path }}" alt="productImage">
@@ -40,11 +40,11 @@
                             </a>
                         </div>
                         <div class="product-action">
-                            <div class="addToCart" mdbTooltip="Add to cart" placement="top">
+                            <div class="addToCart" mdbTooltip="Add to cart" placement="top" [routerLink]="['/products',data.id]">
                                 <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
                             </div>
                             <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
-                                <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart">
+                                <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart" (click)="addToWishList(data)">
                                 </div>
                             </div>
                             <div class="compare" mdbTooltip="Compare" placement="top">
