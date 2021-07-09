@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   stickNav = false;
 
   islogin = localStorage.getItem('islogin');
+  getRole = localStorage.getItem('role');
 
   custname = localStorage.getItem('name');
 
@@ -31,8 +32,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('AMan');
     this.router.navigate(['/']);
+    if (this.islogin == "true") {
+      if(this.getRole != "CUSTOMER") {
+        location.href = "http://45.32.62.106:8090/medlife/"
+      }
+    }
   }
 
   @HostListener('window:scroll', [])

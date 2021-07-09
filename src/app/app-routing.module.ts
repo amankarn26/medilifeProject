@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: '', component:  HomepageComponent,  },
@@ -23,6 +24,9 @@ const routes: Routes = [
   { path: 'cart', component:  CartPageComponent },
 
   { path: 'wishlist', component:  WishlistComponent },
+
+  { path: 'search', component:  SearchComponent },
+  { path: 'search/:query', component:  SearchComponent },
 
   { path: 'login', component:  LoginComponent },
 

@@ -1119,12 +1119,16 @@
     }
 
     .listItem {
+      cursor: pointer;
       .item {
         margin-top: 10px;
         color: #9b9b9b;
         font-size: 15px;
         transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
         box-sizing: border-box;
+      }
+      .item:hover {
+        color: #000000;
       }
     }
   }

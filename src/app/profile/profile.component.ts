@@ -49,6 +49,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo(0,0);
     this.getAddr()
+
+    console.log(this.router.url)
+    if(this.router.url === "/order") this.changeSegment(2)
+    else if(this.router.url === "/transection") this.changeSegment(3)
   }
 
   private getAddr() {

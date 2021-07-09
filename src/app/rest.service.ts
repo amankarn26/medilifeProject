@@ -101,6 +101,9 @@ export class RestService {
   public productPageRest(restid: string, stateId : any) {
     let url = this.server;
     switch (restid) {
+      case 'getAllProduct':
+        url += '/product';
+        break;
       case 'productbyid':
         url += '/product/' + stateId;
         break;

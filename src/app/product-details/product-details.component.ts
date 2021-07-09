@@ -24,6 +24,8 @@ export class ProductDetailsComponent implements OnInit {
   public allProduct: any;
   public topProductLoaded = false;
 
+  public isGoToCartShow = false;
+
   public product = {
     id: 19174,
     prodtype: '',
@@ -59,6 +61,8 @@ export class ProductDetailsComponent implements OnInit {
   public qty = 1;
 
   public prodID = 0;
+
+  public inputQuery: any;
 
   public docServer = this.restService.docServer;
 
@@ -326,6 +330,8 @@ export class ProductDetailsComponent implements OnInit {
 
       this.cartService.addProduct(JSON.parse(JSON.stringify(this.product)));
 
+      this.isGoToCartShow = true
+
       let msg = this.productDetail.name + " of " + this.variant + " is added to cart."
 
       Swal.fire({
@@ -377,5 +383,9 @@ export class ProductDetailsComponent implements OnInit {
         timer: 1500
       })
     }
+  }
+
+  public submitQuery() {
+    this.route.navigate(['/search',this.inputQuery])
   }
 }

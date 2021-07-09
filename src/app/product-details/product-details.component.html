@@ -5,7 +5,7 @@
                 <a href="/">Home</a>
             </div>
             <span class="cat" [routerLink]="[ '/category']">/ &nbsp;&nbsp; Product</span>
-            <span class="name">/ &nbsp;&nbsp; {{productDetail.name}}</span>
+            <span class="name" *ngIf="productDetail">/ &nbsp;&nbsp; {{productDetail.name}}</span>
         </div>
     </div>
 </div>
@@ -16,7 +16,7 @@
                 <div class="searchBox">
                     <div class="text">Search</div>
                     <div class="box">
-                        <input type="text" class="search-field" placeholder="Search&hellip;" value="" name="s" />
+                        <input type="text" class="search-field" placeholder="Search&hellip;" value="" [(ngModel)]="inputQuery" (change)="submitQuery()" name="s" />
                         <button type="submit" class="search-submit">
                             <span class="search-btn-icon fas fa-search"></span>
                         </button>
@@ -99,6 +99,9 @@
                                         <div class="wishlistButton"><img src="assets/svg/heart.svg" alt="add Cart">
                                         </div>
                                     </div>
+                                    <div class="goToCart" mdbTooltip="Go to cart" placement="top" [ngClass]="{showGoToCart: isGoToCartShow}">
+                                        <div class="addToCartButton" [routerLink]="['/cart']">Proceed to checkout</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -106,8 +109,9 @@
                 </div>
                 <div class="productDescription">
                     <h3 class="heading">Description</h3>
-                    <p>1-5L adjustable, Flow rate 1 L concentration 90% ± 2%, flow rate 2 L concentration 78% ± 2%, flow
-                        rate 3 L to 4 L concentration 50% ± 3%, flow rate 5 L concentration 30% ± 3%</p>
+                    <p *ngIf="productDetail">
+                        {{productDetail.description}}
+                    </p>
                 </div>
             </div>
         </div>

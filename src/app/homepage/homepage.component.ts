@@ -35,6 +35,8 @@ export class HomepageComponent implements OnInit {
 
   public slideIndex = 1;
 
+  public isVisible = false
+
 
 
 
@@ -236,6 +238,14 @@ export class HomepageComponent implements OnInit {
 
     this.wishlist.addProduct(JSON.parse(JSON.stringify(productTowish)));
 
-    
+    let msg = product.name + " is added to Wishlist."
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Added to Wishlist',
+      text: msg,
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 }
