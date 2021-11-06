@@ -580,3 +580,88 @@
     opacity: 1;
   }
 }
+
+
+@media (max-width: 769px) {
+
+  .mainContain {
+    padding-left: 25px;
+    padding-right: 25px;
+
+    .imgBox {
+      display: none;
+    }
+  }
+
+  .profileSegment {
+    box-shadow: none !important;
+    backdrop-filter: initial !important;
+    border: none !important;
+    border-top: 5px solid #047d3f !important;
+
+
+    .displayGrid {
+      .containBox {
+        .nameBox {
+          margin-top: 20ox !important;
+          font-size: 1.8rem !important;
+        }
+        .phoneBox, .emailBox {
+          font-size: 1.1rem !important;
+        }
+      }
+    }
+
+    .custAddr {
+      .addr {
+        font-size: 0.8rem !important;
+        padding: 0 0 !important;
+      }
+    }
+
+    .actionBtn {
+      display: block !important;
+      text-align: center;
+      
+      .updateBtn {
+        width: 80% !important;
+        padding: 0 !important;
+        margin: 5px auto !important;
+      }
+    }
+
+    .loginBox {
+      padding: 29px 10px 48px !important;
+
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .orderSegment {
+    box-shadow: none !important;
+    backdrop-filter: initial !important;
+    border: none !important;
+    border-top: 5px solid #047d3f !important;
+
+    .displayGrid {
+      .nameBox {
+        font-size: 3rem !important;
+      }
+    }
+
+    .actionBtn {
+      display: block !important;
+      text-align: center;
+      
+      .updateBtn {
+        width: 80% !important;
+        padding: 0 !important;
+        margin: 5px auto !important;
+        font-size: 0.8rem !important;
+      }
+    }
+  }
+}
+ 

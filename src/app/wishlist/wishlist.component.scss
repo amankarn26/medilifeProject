@@ -570,3 +570,59 @@
     }
   }
   
+
+
+@media (max-width: 769px) {
+  .tableStyle {
+
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #70c057 !important;
+    }
+
+    .product-thumbnail {
+      width: 40vw !important;
+
+      a img {
+        width: 30vw !important;
+      }
+    }
+
+    .product-name, .product-price, .product-quantity, .product-subtotal, .product-remove {
+      display: block;
+      padding: 5px 0 !important;
+
+      .quentityBox {
+        padding: 5px 0 5px !important;
+        margin: 5px 0 5px !important;
+      }
+    }
+
+    .product-subtotal {
+      font-size: 25px !important;
+      color: #70c057 !important;
+    }
+
+    .product-remove {
+      color: #e4573d !important;
+    }
+
+    .action-btn {
+      padding: 0 25px !important;
+      height: 34px !important;
+      line-height: 30px !important;
+      margin-bottom: 0px !important;
+    }
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  .clearButton {
+    float: initial !important;
+  }
+}

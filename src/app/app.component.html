@@ -224,14 +224,14 @@
           </nav>
         </div>
         <div class="headerRight">
-          <div id="header-right-inner" class="header-right-inner">
-            <div class="header-component" [routerLink]="['/search']">
+          <div id="header-right-inner" class="header-right-inner" [ngClass]="{secondMenuOpen: secondMenuOpen}">
+            <div class="header-component" [routerLink]="['/search']" (click)="openSecondMenu()">
               <img src="assets/svg/search.svg" alt="search">
             </div>
-            <a [routerLink]="['/wishlist']" class="header-component header-icon header-wishlist-link style-normal">
+            <a [routerLink]="['/wishlist']" (click)="openSecondMenu()" class="header-component header-icon header-wishlist-link style-normal">
               <img src="assets/svg/heart.svg" alt="search">
             </a>
-            <div id="mini-cart" class="mini-cart style-normal">
+            <div id="mini-cart" class="mini-cart style-normal" (click)="gotoCart()">
               <a class="mini-cart__button header-icon" title="View your shopping cart" style="opacity: 1;">
                 <span class="mini-cart-icon" [attr.data-count]="cartItem"></span>
               </a>
@@ -299,13 +299,13 @@
               </div>
             </div>
           </div>
-          <div class="page-open-mobile-menu">
+          <div class="page-open-mobile-menu" (click)="openFirstMenu()">
             <div class="burger-icon">
               <span class="burger-icon-top"></span>
               <span class="burger-icon-bottom"></span>
             </div>
           </div>
-          <div class="page-open-components">
+          <div class="page-open-components" (click)="openSecondMenu()">
             <div class="inner">
               <div class="circle circle-one"></div>
               <div class="circle circle-two"></div>
@@ -318,44 +318,55 @@
   </div>
 </header>
 
-<!-- <a href="#" mdbTooltip="Basic tooltip" placement="top">you probably</a> -->
+<div id="mySidenav" class="sidenav" [ngClass]="{openSideNav: firstMenuOpen}">
+  <a href="javascript:void(0)" class="closebtn" (click)="openFirstMenu()">&times;</a>
 
-<!-- <div class="showAllProductMainBox">
-  <div class="showProductBox">
+  <a [routerLink]="[ '/']" (click)="openFirstMenu()">Home</a>
 
-    <div class="product-budge">
-      <span class="ShowTop">TOP</span>
-    </div>
-    <div class="mainContain">
-      <div class="product-img">
-        <a href="/">
-          <div class="productImageLimit">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" alt="productImage">
-          </div>
-        </a>
-      </div>
-      <div class="product-action">
-        <div class="addToCart" mdbTooltip="Add to cart" placement="top">
-          <div class="addToCartButton"><img src="assets/svg/newbag.svg" alt="add Cart"></div>
-        </div>
-        <div class="wishlist" mdbTooltip="Add to Wishlist" placement="top">
-          <div class="wishlistButton"><img src="assets/svg/heartWhite.svg" alt="add Cart"></div>
-        </div>
-        <div class="compare" mdbTooltip="Compare" placement="top">
-          <div class="compareButton"><img src="assets/svg/analytics.svg" alt="add Cart"></div>
-        </div>
-      </div>
-    </div>
-    <div class="upperContain">
-      <div class="product-cat">
-        <a href="/">Covid 19</a>
-      </div>
-      <div class="product-name">
-        <a href="/">HandWash</a>
-      </div>
-    </div>
+  <a (click)="test.toggle()">Covid 19 <i class="fas fa-chevron-down"></i></a>
+  <div class="mySideNavInner" mdbCollapse #test="bs-collapse">
+    <a (click)="navigateToCategory('COVID-19 MEDICINE RANGE')" >Medicine Range </a>
+    <a (click)="navigateToCategory('COVID-19 HAND SAFETY RANGE')">Hand Safety</a>
+    <hr>
   </div>
-</div> -->
+
+  <a (click)="test2.toggle()">Carmino Cosmetics <i class="fas fa-chevron-down"></i></a>
+  <div class="mySideNavInner" mdbCollapse #test2="bs-collapse">
+    <a (click)="navigateToCategory('SOAPS')" >Shop </a>
+    <a (click)="navigateToCategory('HAIR OIL')" >Hair Oil </a>
+    <a (click)="navigateToCategory('SHAMPOO')" >Shampoo </a>
+    <a (click)="navigateToCategory('VETERINARY SHAMPOO')" >Veterinary Shampoo </a>
+    <a (click)="navigateToCategory('CREAMS')" >Creams </a>
+    <a (click)="navigateToCategory('BEAUTY CARE')" >Beauty Care </a>
+    <a (click)="navigateToCategory('MOISTURIZING LOTION')" >Moisturising Lotion </a>
+    <a (click)="navigateToCategory('TALCUM POWDER')" >Talcum Power </a>
+    <a (click)="navigateToCategory('HAIR STYLER')" >Hair Styler </a>
+    <hr>
+  </div>
+
+  <a (click)="test3.toggle()">Medicines <i class="fas fa-chevron-down"></i></a>
+  <div class="mySideNavInner" mdbCollapse #test3="bs-collapse">
+    <a (click)="navigateToCategory('DILUTION')" >Dilutions </a>
+    <a (click)="navigateToCategory('MOTHER TINCTURES')" >Mother Tinctures </a>
+    <a (click)="navigateToCategory('BI0 CHEMICS TRITURATION TABLETS')" >Trituration Tablets </a>
+    <a (click)="navigateToCategory('SUGAR GLOBULES')" >Sugar Globules </a>
+    <a (click)="navigateToCategory('LACTOSE SUGAR OF MILK')" >Lactose </a>
+    <hr>
+  </div>
+
+  <a (click)="test4.toggle()">Patent Medicines <i class="fas fa-chevron-down"></i></a>
+  <div class="mySideNavInner" mdbCollapse #test4="bs-collapse">
+    <a (click)="navigateToCategory('TABLETS')" >Tablets </a>
+    <a (click)="navigateToCategory('DROPS')" >Drops </a>
+    <a (click)="navigateToCategory('MEDILIFE DROPS')" >Medilife Drops </a>
+    <a (click)="navigateToCategory('MASSAGE OIL')" >Massage Oil </a>
+    <a (click)="navigateToCategory('TONICS / SYRUPS')" >Tonics / Syrups </a>
+    <a (click)="navigateToCategory('PILLS')" >Pills </a>
+    <a (click)="navigateToCategory('OINTMENTS')" >Ointments </a>
+    <hr>
+  </div>
+
+</div>
 
 <router-outlet></router-outlet>
 <div style="overflow:hidden;resize:none;max-width:100%;width:100%;height:500px;">

@@ -346,7 +346,8 @@
                 }
               }
 
-              li, li:active {
+              li,
+              li:active {
                 .sub-menu {
                   position: absolute;
                   top: 100%;
@@ -365,19 +366,18 @@
                   box-shadow: 0 -3px 23px rgba(0, 0, 0, 0.06);
                   color: #333;
 
-
                   transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-                
+
                   list-style: none;
                   text-align: left;
                   line-height: normal;
                   direction: ltr;
                   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-                
+
                   .inner-menu-item {
                     float: none;
                     position: relative;
-                
+
                     display: block !important;
                     margin: 0;
                     padding: 0;
@@ -387,7 +387,7 @@
                     line-height: normal;
                     direction: ltr;
                     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-                
+
                     a {
                       white-space: nowrap;
                       padding: 0 !important;
@@ -401,12 +401,12 @@
                       position: relative;
 
                       border-bottom: none;
-                
+
                       .menu-item-wrap {
                         line-height: 0;
                         display: flex;
                         align-items: center;
-                
+
                         .menu-item-title {
                           font-weight: 400;
                           letter-spacing: 0em;
@@ -1034,6 +1034,7 @@
   will-change: transform;
 }
 
+
 // All keyframes
 @keyframes slide {
   25% {
@@ -1236,6 +1237,120 @@
           padding-bottom: 10px;
         }
       }
+    }
+  }
+
+  .secondMenuOpen {
+    position: absolute;
+    top: 100%;
+    display: flex !important;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+    padding: 20px 10px 20px !important;
+    box-shadow: 0 0 40px rgb(0 0 0 / 9%);
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    -ms-transform: translateY(30px);
+    transform: translateY(30px);
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+    background: #ffffff;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+
+.sidenav {
+  height: 100%;
+
+  /* 100% Full-height */
+  width: 0;
+
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+
+  /* Stay in place */
+  z-index: 100000;
+
+  /* Stay on top */
+  top: 0;
+
+  /* Stay at the top */
+  left: 0;
+  background-color: #047D3F;
+
+  /* Black*/
+  overflow-x: hidden;
+
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+
+  /* Place content 60px from the top */
+  transition: 0.5s;
+
+  /* 0.5 second transition effect to slide in the sidenav */
+
+  a {
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+
+    i {
+      float: right;
+      margin-right: 25px;
+    }
+
+    &:hover {
+      color: #f1f1f1;
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+}
+
+.openSideNav {
+  width: 80vw !important;
+  transition: 0.5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 1024px) {
+  .sidenav {
+    padding-top: 15px;
+
+    a {
+      font-size: 18px;
     }
   }
 }

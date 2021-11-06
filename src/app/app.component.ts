@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartServiceService } from './cart/cart-service.service';
+import { CollapseModule, WavesModule } from 'angular-bootstrap-md'
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,8 @@ export class AppComponent implements OnInit {
   cartData = this.cartService.getCart();
   cartTotal = this.cartService.getCartTotal();
   stickNav = false;
+  firstMenuOpen = false;
+  secondMenuOpen = false;
 
   islogin = localStorage.getItem('islogin');
   getRole = localStorage.getItem('role');
@@ -69,6 +72,7 @@ export class AppComponent implements OnInit {
   }
 
   public navigateToCategory(additionalPaths: string) {
+    this.firstMenuOpen = false
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/category', additionalPaths]);
     });
@@ -108,5 +112,19 @@ export class AppComponent implements OnInit {
     localStorage.clear()
     sessionStorage.clear()
     location.reload()
+  }
+
+  public openSecondMenu() {
+    this.secondMenuOpen = !this.secondMenuOpen
+  }
+
+  public gotoCart() {
+    if(this.secondMenuOpen)
+      this.router.navigate(['cart'])
+    this.secondMenuOpen = false
+  }
+
+  public openFirstMenu() {
+    this.firstMenuOpen = !this.firstMenuOpen
   }
 }

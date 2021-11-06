@@ -84,6 +84,7 @@ export class LoginComponent implements OnInit {
         // localStorage.setItem('islogin', 'true');
         localStorage.setItem('email', response.email);
         localStorage.setItem('phone', response.phone);
+        localStorage.setItem('role', "CUSTOMER");
         localStorage.setItem('Address', JSON.stringify(response.address));
         window.scrollTo(0, 0);
 
