@@ -10,4 +10,49 @@
     <div class="heading">
         <div class="centralizeBox">Contact Us</div>
     </div>
+    <div class="centerContain">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="centerContainContainer">
+                    <p>
+                        <strong>Medilife Impex Pvt. Ltd. :&nbsp; <br></strong>
+                        Plot No. M-30, MIDC Area, Nildoh <br/>
+                        Hingna, Nagpur - 440016 <br/>
+                        Maharashtra, India
+                    </p>
+                    <p>
+                        <br>
+                        <strong>Phone:&nbsp;<br></strong> +91 7104237744
+                    </p>
+                    <p>
+                        <strong>Email:&nbsp;<br></strong> info@medilifeonline.in
+                    </p>
+                    <p>
+                        <strong>Website:&nbsp;<br></strong> www.medilifeonline.in
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="boxContact">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="inputText" placeholder="Name" name="name"
+                                [(ngModel)]="contactEnquiry.name" required />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="inputText" placeholder="Email*" name="email"
+                                [(ngModel)]="contactEnquiry.email" required />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="inputText" placeholder="Phone" name="phone"
+                                [(ngModel)]="contactEnquiry.phone" required />
+                        </div>
+                    </div>
+                    <textarea class="inputText" style="min-height: 128px;margin-top: 20px;" placeholder="Message*"
+                        name="message" [(ngModel)]="contactEnquiry.message" required></textarea>
+                    <div class="loginButton" (click)="sendMessage()">Send</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

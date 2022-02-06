@@ -10,6 +10,8 @@ export class RestService {
   // public ip = "http://localhost:8090";
   public ip = "http://157.245.99.243:8090";
   // public ip = "https://cors-anywhere.herokuapp.com/http://45.32.62.106:8090";
+  
+  public nodeIp = "https://demomail.amankarn.website"
 
   public server = this.ip + '/NaturalHomeoManager';
   public docServer = this.ip + '/naturalhomeodocs';
@@ -53,6 +55,28 @@ export class RestService {
         console.log('service method: ' + postresponse);
         return postresponse;
       }));
+  }
+
+
+
+  public mailNode(restId: string) {
+    let url = this.nodeIp
+    switch (restId) {
+      case "sendMail":
+        url += '/send';
+        break;
+      case "sendEnquiry":
+        url += '/sendEnquiry';
+        break;
+      case "sendEnquiryWithCat":
+        url += '/sendEnquiryWithCat';
+        break;
+
+      default:
+        url += '/send';
+        break;
+    }
+    return url
   }
 
 

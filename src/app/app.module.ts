@@ -22,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SearchComponent } from './search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CancellationComponent } from './company/cancellation/cancellation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginComponent,
     ProfileComponent,
     WishlistComponent,
-    SearchComponent
+    SearchComponent,
+    CancellationComponent
   ],
   imports: [
     BrowserModule,

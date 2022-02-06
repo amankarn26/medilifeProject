@@ -363,7 +363,7 @@
           <div class="listItem">
             <div class="item" (click)="moveToProfile(1)">My Profile</div>
             <div class="item" (click)="moveToProfile(2)">My Orders</div>
-            <div class="item" (click)="moveToProfile(3)">My Transection</div>
+            <div class="item" (click)="moveToProfile(3)">My Transaction</div>
             <div class="item" *ngIf="islogin == 'true'" (click)="logout()">Logout</div>
           </div>
         </div>
@@ -374,6 +374,7 @@
           <div class="listItem">
             <div class="item" [routerLink]="['/company/about']">About Us</div>
             <div class="item" [routerLink]="['/company/term']">Terms and Conditions</div>
+            <div class="item" [routerLink]="['/company/policy']">Cancellation/Refund Policy</div>
             <div class="item" [routerLink]="['/company/privacy']">Privacy Policy</div>
             <div class="item" [routerLink]="['/company/contact']">Contact us</div>
           </div>

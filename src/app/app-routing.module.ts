@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SearchComponent } from './search/search.component';
+import { CancellationComponent } from './company/cancellation/cancellation.component';
 
 const routes: Routes = [
   { path: '', component:  HomepageComponent,  },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'company/contact', component:  ContactComponent },
   { path: 'company/privacy', component:  PrivacyComponent },
   { path: 'company/term', component:  TermComponent },
+  { path: 'company/policy', component:  CancellationComponent },
 
 
   { path: '**', component:  HomepageComponent },

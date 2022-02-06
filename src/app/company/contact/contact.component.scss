@@ -73,4 +73,67 @@
       margin: 0 0 18px;
     }
   }
+
+  .centerContain {
+    padding: 5vh 10vw 10vh;
+
+    .centerContainContainer {
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    .boxContact {
+      width: 100%;
+      height: 100%;
+      background-color: #EFF3FA;
+      padding: 5vh 5vw;
+      border-radius: 20px;
+
+      .upperCatBox {
+        margin-bottom: 20px;
+
+        .upperCat {
+          padding: 10px;
+          text-align: center;
+        }
+
+        .selected {
+          background: #e35c33;
+          color: #FFF;
+          border-radius: 10px;
+          font-weight: 600;
+        }
+      }
+
+      .inputText {
+        min-height: 53px;
+        border-radius: 10px;
+        width: 100%;
+        padding: 10px 27px;
+        font-size: 14px;
+        line-height: 16px;
+        margin: 0;
+        box-shadow: 1px 1px 0 0 rgb(196 196 196 / 24%);
+        border: 1px solid #e7edf3;
+      }
+
+      .loginButton {
+        background: linear-gradient(96.83deg, #F15A24 0%, #0071BC 111.12%);
+        border-radius: 6px;
+        color: white;
+        text-align: center;
+        font-size: large;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+  }
 }
