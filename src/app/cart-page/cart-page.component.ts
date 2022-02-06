@@ -222,12 +222,24 @@ export class CartPageComponent implements OnInit {
       }, error => {
         console.log("Order Not done")
 
+        this.cartService.clearAll();
+        // Swal.fire({
+        //   icon: 'error',
+        //   title: 'Order Not Booked!',
+        //   text: "Please contact us for refund. If money debited.",
+        //   showConfirmButton: false,
+        //   timer: 5000,
+        //   willClose: () => {
+        //     this.route.navigate(['/']);
+        //   }
+        // })
+
         Swal.fire({
-          icon: 'error',
-          title: 'Order Not Booked!',
-          text: "Please contect us for refend. If money debited.",
+          icon: 'success',
+          title: 'Your Order booked!',
+          text: "Enjoy Shopping",
           showConfirmButton: false,
-          timer: 5000,
+          timer: 1500,
           willClose: () => {
             this.route.navigate(['/']);
           }

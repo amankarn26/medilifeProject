@@ -43,8 +43,10 @@
               </ul>
             </div>
           </div>
-          <a [routerLink]="[ '/profile']" *ngIf="islogin == 'true'" class="loginButton" title="Log In / Sign Up">Welcome {{custname}}</a>
-          <a [routerLink]="['/login']" *ngIf="islogin != 'true'" class="loginButton" title="Log In / Sign Up">Log In / Sign Up</a>
+          <a [routerLink]="[ '/profile']" *ngIf="islogin == 'true'" class="loginButton" title="Log In / Sign Up">Welcome
+            {{custname}}</a>
+          <a [routerLink]="['/login']" *ngIf="islogin != 'true'" class="loginButton" title="Log In / Sign Up">Log In /
+            Sign Up</a>
         </div>
       </div>
     </div>
@@ -66,23 +68,17 @@
             <ul class="nav navbar-nav extraNav">
               <li class="active"><a [routerLink]="[ '/']">Home</a></li>
 
-              <li>
-                <a [routerLink]="[ '/']">Covid 19</a>
+              <li *ngFor="let element of this.allProductType">
+                <a [routerLink]="[ '/']">{{element.cat}}</a>
                 <ul class="sub-menu">
-                  <li class="inner-menu-item">
-                    <a (click)="navigateToCategory('COVID-19 MEDICINE RANGE')">
-                      <div class="menu-item-wrap"><span class="menu-item-title">Medicine Range </span></div>
-                    </a>
-                  </li>
-                  <li class="inner-menu-item">
-                    <a (click)="navigateToCategory('COVID-19 HAND SAFETY RANGE')">
-                      <div class="menu-item-wrap"><span class="menu-item-title">Hand Safety</span>
-                      </div>
+                  <li class="inner-menu-item" *ngFor="let item of element.allProdType">
+                    <a (click)="navigateToCategory(item.prodtype)">
+                      <div class="menu-item-wrap"><span class="menu-item-title">{{item.prodtype}}</span></div>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <a [routerLink]="[ '/']">Carmino Cosmetics</a>
                 <ul class="sub-menu">
                   <li class="inner-menu-item">
@@ -219,7 +215,7 @@
                     </a>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
@@ -228,7 +224,8 @@
             <div class="header-component" [routerLink]="['/search']" (click)="openSecondMenu()">
               <img src="assets/svg/search.svg" alt="search">
             </div>
-            <a [routerLink]="['/wishlist']" (click)="openSecondMenu()" class="header-component header-icon header-wishlist-link style-normal">
+            <a [routerLink]="['/wishlist']" (click)="openSecondMenu()"
+              class="header-component header-icon header-wishlist-link style-normal">
               <img src="assets/svg/heart.svg" alt="search">
             </a>
             <div id="mini-cart" class="mini-cart style-normal" (click)="gotoCart()">
@@ -273,8 +270,8 @@
 
 
                   <div class="woocommerce-mini-cart__buttons buttons">
-                    <a class="button wc-forward" [routerLink]="['/cart']" >View cart</a>
-                    <a class="button checkout wc-forward" [routerLink]="['/cart']" >Checkout</a>
+                    <a class="button wc-forward" [routerLink]="['/cart']">View cart</a>
+                    <a class="button checkout wc-forward" [routerLink]="['/cart']">Checkout</a>
                   </div>
                 </div>
 
@@ -323,48 +320,13 @@
 
   <a [routerLink]="[ '/']" (click)="openFirstMenu()">Home</a>
 
-  <a (click)="test.toggle()">Covid 19 <i class="fas fa-chevron-down"></i></a>
-  <div class="mySideNavInner" mdbCollapse #test="bs-collapse">
-    <a (click)="navigateToCategory('COVID-19 MEDICINE RANGE')" >Medicine Range </a>
-    <a (click)="navigateToCategory('COVID-19 HAND SAFETY RANGE')">Hand Safety</a>
-    <hr>
-  </div>
-
-  <a (click)="test2.toggle()">Carmino Cosmetics <i class="fas fa-chevron-down"></i></a>
-  <div class="mySideNavInner" mdbCollapse #test2="bs-collapse">
-    <a (click)="navigateToCategory('SOAPS')" >Shop </a>
-    <a (click)="navigateToCategory('HAIR OIL')" >Hair Oil </a>
-    <a (click)="navigateToCategory('SHAMPOO')" >Shampoo </a>
-    <a (click)="navigateToCategory('VETERINARY SHAMPOO')" >Veterinary Shampoo </a>
-    <a (click)="navigateToCategory('CREAMS')" >Creams </a>
-    <a (click)="navigateToCategory('BEAUTY CARE')" >Beauty Care </a>
-    <a (click)="navigateToCategory('MOISTURIZING LOTION')" >Moisturising Lotion </a>
-    <a (click)="navigateToCategory('TALCUM POWDER')" >Talcum Power </a>
-    <a (click)="navigateToCategory('HAIR STYLER')" >Hair Styler </a>
-    <hr>
-  </div>
-
-  <a (click)="test3.toggle()">Medicines <i class="fas fa-chevron-down"></i></a>
-  <div class="mySideNavInner" mdbCollapse #test3="bs-collapse">
-    <a (click)="navigateToCategory('DILUTION')" >Dilutions </a>
-    <a (click)="navigateToCategory('MOTHER TINCTURES')" >Mother Tinctures </a>
-    <a (click)="navigateToCategory('BI0 CHEMICS TRITURATION TABLETS')" >Trituration Tablets </a>
-    <a (click)="navigateToCategory('SUGAR GLOBULES')" >Sugar Globules </a>
-    <a (click)="navigateToCategory('LACTOSE SUGAR OF MILK')" >Lactose </a>
-    <hr>
-  </div>
-
-  <a (click)="test4.toggle()">Patent Medicines <i class="fas fa-chevron-down"></i></a>
-  <div class="mySideNavInner" mdbCollapse #test4="bs-collapse">
-    <a (click)="navigateToCategory('TABLETS')" >Tablets </a>
-    <a (click)="navigateToCategory('DROPS')" >Drops </a>
-    <a (click)="navigateToCategory('MEDILIFE DROPS')" >Medilife Drops </a>
-    <a (click)="navigateToCategory('MASSAGE OIL')" >Massage Oil </a>
-    <a (click)="navigateToCategory('TONICS / SYRUPS')" >Tonics / Syrups </a>
-    <a (click)="navigateToCategory('PILLS')" >Pills </a>
-    <a (click)="navigateToCategory('OINTMENTS')" >Ointments </a>
-    <hr>
-  </div>
+  <ng-container *ngFor="let element of this.allProductType; let i = index">
+    <a (click)="test.toggle()">{{element.cat}}<i class="fas fa-chevron-down"></i></a>
+    <div class="mySideNavInner" mdbCollapse #test="bs-collapse">
+      <a  *ngFor="let item of element.allProdType" (click)="navigateToCategory(item.prodtype)">{{item.prodtype}}</a>
+      <hr>
+    </div>
+  </ng-container>
 
 </div>
 
@@ -420,7 +382,8 @@
       <div class="col-md-3">
         <div class="emailShow">
           <div class="heading">Work Inquiries</div>
-          <div class="email"><a href="mailto:info@medilife.com" style="text-decoration: none;">info@medilife.com</a></div>
+          <div class="email"><a href="mailto:info@medilife.com" style="text-decoration: none;">info@medilife.com</a>
+          </div>
           <div class="paymentGateway">
             <div class="infoText">Secured Payment Gateways</div>
             <div class="infoImg"><img src="https://medizin.thememove.com/wp-content/uploads/2020/04/payment-methods.png"

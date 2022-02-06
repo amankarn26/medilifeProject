@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class RestService {
 
   // public ip = "http://localhost:8090";
-  public ip = "http://45.32.62.106:8090";
+  public ip = "http://157.245.99.243:8090";
   // public ip = "https://cors-anywhere.herokuapp.com/http://45.32.62.106:8090";
 
   public server = this.ip + '/NaturalHomeoManager';
